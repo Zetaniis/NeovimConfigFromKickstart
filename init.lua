@@ -54,7 +54,7 @@ Plugins = {
 	--           end,
 	--   },
 
-	{ 
+	{
 		"folke/which-key.nvim", -- lazy=true 
 	},
 
@@ -64,7 +64,7 @@ Plugins = {
 	-- splitting/joining blocks of code
 	{
 		'Wansmer/treesj',
-		keys = { '<space>m', '<space>j', '<space>s' },
+		keys = { '<space>m'},--, '<space>j', '<space>s' },
 		dependencies = { 'nvim-treesitter/nvim-treesitter' },
 		config = function()
 			require('treesj').setup({--[[ your config ]]})
@@ -233,8 +233,12 @@ Plugins = {
 
 }
 
+Opts = {
+
+}
+
 -- running the setup for the plugins
-require("lazy").setup(Plugins, opts)
+require("lazy").setup(Plugins, Opts)
 
 
 -- SETTINGS`
@@ -329,6 +333,33 @@ require('telescope').setup {
         ['<C-d>'] = false,
       },
     },
+	layout_strategy = "flex",
+		layout_config = {
+			horizontal = {
+				size = {
+					width = "90%",
+					height = "60%",
+				},
+			},
+			vertical = {
+				size = {
+					width = "90%",
+					height = "90%",
+				},
+			},
+		},
+
+
+	-- width = function(_, max_columns)
+ --          local percentage = 1
+ --          local max = 70
+ --          return math.min(math.floor(percentage * max_columns), max)
+ --        end,
+ --        height = function(_, _, max_lines)
+ --          local percentage = 1
+ --          local min = 70
+ --          return math.max(math.floor(percentage * max_lines), min)
+ --        end,
   },
 }
 
@@ -395,8 +426,9 @@ vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 
 
 
 
--- [[ Configure Treesitter ]]
 
+-- [[ Configure Treesitter ]]
+-- gcc seems to break on windows, zig seems to work well
 require 'nvim-treesitter.install'.compilers = { "zig" }
 
 -- See `:help nvim-treesitter`
@@ -518,13 +550,14 @@ end
 
 -- add key chains to which-key
 require('which-key').register {
-  ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-  ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
-  ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
-  ['<leader>h'] = { name = 'More git', _ = 'which_key_ignore' },
-  ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-  ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-  ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
+	['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
+	['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
+	['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
+	['<leader>h'] = { name = 'More git', _ = 'which_key_ignore' },
+	['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
+	['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
+	['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
+	['<leader>m'] = { name = '[M] Split/join code block', _ = 'which_key_ignore' },
 }
 --
 

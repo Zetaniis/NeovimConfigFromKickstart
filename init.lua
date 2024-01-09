@@ -321,33 +321,8 @@ require('telescope').setup {
         ['<C-d>'] = false,
       },
     },
-	layout_strategy = "flex",
-		layout_config = {
-			horizontal = {
-				size = {
-					width = "90%",
-					height = "60%",
-				},
-			},
-			vertical = {
-				size = {
-					width = "90%",
-					height = "90%",
-				},
-			},
-		},
+	layout_config = { horizontal = { width = 0.9999, height = 0.9999}, vertical = { width = 0.9999, height = 0.9999}  },
 
-
-	-- width = function(_, max_columns)
- --          local percentage = 1
- --          local max = 70
- --          return math.min(math.floor(percentage * max_columns), max)
- --        end,
- --        height = function(_, _, max_lines)
- --          local percentage = 1
- --          local min = 70
- --          return math.max(math.floor(percentage * max_lines), min)
- --        end,
   },
 }
 

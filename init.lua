@@ -58,8 +58,8 @@ Plugins = {
 		"folke/which-key.nvim", -- lazy=true 
 	},
 
-	-- TODO figure out what is this 
-	-- { "stevearc/dressing.nvim", event = "VeryLazy" },
+	-- use telescope for vim.ui.input and vim.ui.select
+	{ "stevearc/dressing.nvim", event = "VeryLazy" },
 
 	-- splitting/joining blocks of code
 	{
@@ -107,6 +107,7 @@ Plugins = {
 
 	{
 		-- Autocompletion
+		-- could be useful to check - https://youtu.be/NL8D8EkphUw?si=0HBrsuGqCz4yBsDR&t=756
 		'hrsh7th/nvim-cmp',
 		dependencies = {
 			-- Not sure what kind of autocompletion should I use so I just pasted the ones from the kickstart.nvim

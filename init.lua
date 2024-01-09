@@ -241,19 +241,7 @@ Opts = {
 require("lazy").setup(Plugins, Opts)
 
 
--- SETTINGS`
-
--- legacy config, TODO to be converted to lua
-vim.cmd([[
-" TODO find better bindings for moving the lines (or just use the dd and pp)"
-
-" nnoremap K :m .-2<CR>==     " 
-" nnoremap J :m .+I<CR>==     " 
-" vnoremap K :m '<-2<CR>gv=gv " 
-" vnoremap J :m '>+1<CR>gv=gv "
-
-" nnoremap <Leader>ve :e $MYVIMRC<CR> "
-]])
+-- SETTINGS
 
 -- Unified clipboard
 vim.opt.clipboard = "unnamed,unnamedplus"

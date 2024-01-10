@@ -275,7 +275,7 @@ vim.wo.signcolumn = 'yes'
 vim.o.completeopt = 'menuone,noselect'
 
 -- NOTE: You should make sure your terminal supports this
--- vim.o.termguicolors = true
+vim.o.termguicolors = true
 
 -- TODO make the tab work as 4 spaces
 -- vim.o.tabstop = 4

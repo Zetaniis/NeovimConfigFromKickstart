@@ -73,9 +73,9 @@ Plugins = {
 
 	-- wrapper for git commands with some additional commands
 	-- I mostly use an additional terminal for git stuff, but could test this out TODO
-	-- {
-	--     'tpope/vim-fugitive',
-	-- },
+	{
+	    'tpope/vim-fugitive',
+	},
 
 	-- github integration 
 	-- prob useless to me right now
@@ -280,7 +280,10 @@ vim.o.termguicolors = true
 -- TODO make the tab work as 4 spaces
 -- vim.o.tabstop = 4
 
-
+vim.o.tabstop = 4 -- A TAB character looks like 4 spaces
+vim.o.expandtab = true -- Pressing the TAB key will insert spaces instead of a TAB character
+vim.o.softtabstop = 4 -- Number of spaces inserted instead of a TAB character
+vim.o.shiftwidth = 4 -- Number of spaces inserted when indenting
 
 -- KEYBINDS
 
@@ -299,6 +302,8 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 
 -- TODO after restructuring the config, make a leader command that will jump to the root of the config directory 
 vim.keymap.set({'n', 'v'}, '<Leader>ve',  ":e $MYVIMRC<CR>", { desc = 'Edit VIM configuration file' })
+
+
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`

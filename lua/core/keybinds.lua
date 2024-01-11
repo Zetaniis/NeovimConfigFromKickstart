@@ -16,4 +16,4 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- TODO after restructuring the config, make a leader command that will jump to the root of the config directory 
 vim.keymap.set({'n', 'v'}, '<Leader>ve',  ":e $MYVIMRC<CR>", { desc = 'Edit VIM configuration file' })
 
-
+vim.keymap.set({'n', 'v'}, '<Leader>pv', vim.cmd.Ex, { desc = 'Open vim file explorer' })

@@ -1,3 +1,23 @@
+-- [[Configure theming ]]
+-- research lush.nvim or make the total background change painless
+-- vim.cmd([[
+--     hi Normal guibg='#000000'
+-- ]])
+--
+-- vim.cmd([[
+--     hi EndOfBuffer guibg='#000000'
+-- ]])
+--
+-- vim.cmd([[ 
+--     hi SignColumn guibg='#000000' 
+-- ]])
+
+vim.api.nvim_set_hl(0, "Normal", { bg = "none"} )
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none"} )
+vim.api.nvim_set_hl(0, "SignColumn", { bg = "none"} )
+vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none"} )
+
+
 -- [[ Configure Treesitter ]]
 -- gcc seems to break on windows, zig seems to work well
 require 'nvim-treesitter.install'.compilers = { "zig" }

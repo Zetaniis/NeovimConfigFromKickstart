@@ -1,7 +1,8 @@
--- structure of the config:
--- lue/core - vanilla vim configs (settings, keybinds)
--- lua/plugins - plugins install and their configs
--- after/plugin - non lazy.nvim configs for plugins
+-- Based on kickstart.nvim
+-- - Structure of the config:
+-- - lua/core - vanilla vim configs (settings, keybinds)
+-- - lua/plugins - plugins install and their configs
+-- - after/plugin - non lazy.nvim configs for plugins
 -- check obsidian://open?vault=MainVault&file=General%20vim%20config for more info (private repo, for my eyes only)
 
 vim.g.mapleader = ' '
@@ -41,9 +42,6 @@ Opts = {
 
 }
 
--- running the setup for the plugins
--- require("lazy").setup(Plugins, Opts)
--- require("lazy").setup("lua.core", Opts)
 require("lazy").setup(
 {
     {import = "plugins"},

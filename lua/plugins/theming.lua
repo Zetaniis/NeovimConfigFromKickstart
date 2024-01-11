@@ -1,19 +1,3 @@
-function MakeBGBlack()
-    -- research lush.nvim or make the total background change painless
-    vim.cmd([[
-        hi Normal guibg='#000000'
-    ]])
-
-    vim.cmd([[
-        hi EndOfBuffer guibg='#000000'
-    ]])
-
-    vim.cmd([[ 
-        hi SignColumn guibg='#000000' 
-    ]])
-
-end
-
 return {
 
     -- THEMES
@@ -38,7 +22,6 @@ return {
                 style='darker'
             })
             vim.cmd.colorscheme 'onedark'
-            MakeBGBlack()
         end,
     },
 

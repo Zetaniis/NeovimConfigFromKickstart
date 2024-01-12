@@ -1,2 +1,2 @@
-require('lua.core.keybinds')
-require('lua.core.settings')
+require('core.keybinds')
+require('core.settings')

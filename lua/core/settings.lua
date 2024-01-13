@@ -55,7 +55,7 @@ vim.opt.incsearch = true
 
 
 -- making some space on the end of the file
-vim.opt.scrolloff = 10
+vim.opt.scrolloff = 5
 
 -- TODO not sure what this is, research
 -- vim.opt.isfname:append("@-@")

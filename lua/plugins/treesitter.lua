@@ -8,4 +8,7 @@ return {
         build = ':TSUpdate',
     },
 
+    -- For debugging and creating/testing new features with treesitter
+    -- { 'nvim-treesitter/playground' },
+
 }

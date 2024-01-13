@@ -43,3 +43,25 @@ vim.o.expandtab = true -- Pressing the TAB key will insert spaces instead of a T
 -- TODO figure out if there are any disadantages of running unix filetypes on windows
 -- vim.o.fileformats = { 'unix', 'dos' }
 
+-- TODO figure out if I want undotree to manage my backups
+-- would also have to changet the getenv to something else for Windows
+-- vim.opt.swapfile = false
+-- vim.opt.backup = false
+-- vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+-- vim.opt.undofile = true
+
+
+vim.opt.incsearch = true
+
+
+-- making some space on the end of the file
+vim.opt.scrolloff = 10
+
+-- TODO not sure what this is, research
+-- vim.opt.isfname:append("@-@")
+
+
+
+
+
+

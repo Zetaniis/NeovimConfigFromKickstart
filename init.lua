@@ -1,3 +1,4 @@
+-- TODO make a command/alias that opens this file and changes the working directory to nvim config dir
 -- Based on kickstart.nvim
 -- - Structure of the config:
 -- - lua/core - vanilla vim configs (settings, keybinds)
@@ -43,12 +44,8 @@ Opts = {
 }
 
 require("lazy").setup(
-{
-    {import = "plugins"},
-    {Plugins},
-}
-, Opts)
-
-
-
-
+    {
+        { import = "plugins" },
+        { Plugins },
+    }
+    , Opts)

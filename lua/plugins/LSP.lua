@@ -1,6 +1,7 @@
 return {
 
     -- LSP plugings 
+    -- alternative plugin for LSP - LSP zero - supposedly easier to run with good defaults
     {
         -- configs 
         'neovim/nvim-lspconfig',

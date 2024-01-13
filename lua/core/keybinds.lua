@@ -13,17 +13,22 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnos
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
--- TODO after restructuring the config, make a leader command that will jump to the root of the config directory 
-vim.keymap.set({ 'n', 'v' }, '<Leader>ve', ":e $MYVIMRC<CR>", { desc = 'Edit VIM configuration file' })
+-- opening base config file for neovim - init.lua - and changing working directory to the config one
+vim.keymap.set({ 'n', 'v' }, '<Leader>vc', function()
+        vim.cmd([[cd `=stdpath("config")`]])
+        vim.cmd([[e init.lua]])
+    end,
+    { desc = 'Edit [v]IM [c]onfiguration' })
 
-vim.keymap.set({'n', 'v'}, '<Leader>pv', vim.cmd.Ex, { desc = 'Open vim file explorer' })
+
+vim.keymap.set({ 'n', 'v' }, '<Leader>pv', vim.cmd.Ex, { desc = 'Open vim file explorer' })
 
 
 -- moving lines
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
--- classing connecting lines, 
+-- classin connecting lines,
 vim.keymap.set("n", "J", "J")
 -- connecting lines that makes the cursor stay
 -- vim.keymap.set("n", "J", "mzJ`z")

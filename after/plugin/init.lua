@@ -20,7 +20,7 @@ vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none"} )
 
 -- [[ Configure Treesitter ]]
 -- gcc seems to break on windows, zig seems to work well
-require 'nvim-treesitter.install'.prefer_git = true;
+-- require 'nvim-treesitter.install'.prefer_git = true;
 require 'nvim-treesitter.install'.compilers = { "zig" }
 
 
@@ -123,7 +123,7 @@ vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 
 vim.defer_fn(function()
     require('nvim-treesitter.configs').setup {
         -- Add languages to be installed here that you want installed for treesitter
-        ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash', 'vimdoc' },
+        ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'toml', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash', 'vimdoc' },
 
         -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
         auto_install = false,
@@ -206,6 +206,8 @@ local on_attach = function(_, bufnr)
         vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
     end
 
+
+
     nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
     nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
@@ -229,9 +231,13 @@ local on_attach = function(_, bufnr)
     end, '[W]orkspace [L]ist Folders')
 
     -- Create a command `:Format` local to the LSP buffer
+    -- not sure if I will be using it as I have spc f as the format script
     vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
         vim.lsp.buf.format()
     end, { desc = 'Format current buffer with LSP' })
+
+    -- this is some rust lsp thing, not sure if I should run it or not
+    -- require'completion'.on_attach(client) 
 end
 
 
@@ -266,7 +272,6 @@ local servers = {
     -- clangd = {},
     -- gopls = {},
     -- pyright = {},
-    -- rust_analyzer = {},
     -- tsserver = {},
     -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
@@ -276,10 +281,29 @@ local servers = {
             telemetry = { enable = false },
         },
     },
+
+    ['rust_analyzer'] = {
+        imports = {
+            granularity = {
+                group = "module",
+            },
+            prefix = "self",
+        },
+        cargo = {
+            buildScripts = {
+                enable = true,
+            },
+        },
+        procMacro = {
+            enable = true
+        },
+    },
+
 }
 
 -- Setup neovim lua configuration
 require('neodev').setup()
+-- require('rustaceanvim').setup()
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -348,6 +372,12 @@ cmp.setup {
     sources = {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
+        { name = 'path' },                              -- file paths
+        { name = 'nvim_lsp_signature_help'},            -- display function signatures with current parameter emphasized
+        -- { name = 'nvim_lua', keyword_length = 2},       -- complete neovim's Lua runtime API such vim.lsp.*
+        { name = 'buffer', keyword_length = 2 },        -- source current buffer
+        { name = 'vsnip', keyword_length = 2 },         -- nvim-cmp source for vim-vsnip 
+        { name = 'calc'},                               -- source for math calculation
     },
 }
 

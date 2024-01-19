@@ -1,5 +1,6 @@
--- [[Configure theming ]]
--- research lush.nvim or make the total background change painless
+-- TODO break down this file into smaller ones
+
+-- [[ Configure theming ]]
 -- vim.cmd([[
 --     hi Normal guibg='#000000'
 -- ]])
@@ -8,14 +9,15 @@
 --     hi EndOfBuffer guibg='#000000'
 -- ]])
 --
--- vim.cmd([[ 
---     hi SignColumn guibg='#000000' 
+-- vim.cmd([[
+--     hi SignColumn guibg='#000000'
 -- ]])
 
-vim.api.nvim_set_hl(0, "Normal", { bg = "none"} )
--- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none"} )
-vim.api.nvim_set_hl(0, "SignColumn", { bg = "none"} )
-vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none"} )
+-- this, I think is a better way than the above
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#111111"} )
+vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
 
 
 -- [[ Configure Treesitter ]]
@@ -47,7 +49,8 @@ require('telescope').setup {
                 ['<C-d>'] = false,
             },
         },
-        layout_config = { horizontal = { width = 0.9999, height = 0.9999}, vertical = { width = 0.9999, height = 0.9999}  },
+        -- find a better way of making telescope fullscreen
+        layout_config = { horizontal = { width = 0.9999, height = 0.9999 }, vertical = { width = 0.9999, height = 0.9999 } },
 
     },
 }
@@ -83,11 +86,13 @@ end
 
 
 -- Custom live_grep function to search in git root
+-- TODO I wonder if you could add an signal/icon showing the end of the search
+-- this current implementation the prompt doesn't give any indication whether it's grepping or already stopped the search (with zero entries)
 local function live_grep_git_root()
     local git_root = find_git_root()
     if git_root then
         require('telescope.builtin').live_grep({
-            search_dirs = {git_root},
+            search_dirs = { git_root },
         })
     end
 end
@@ -133,6 +138,8 @@ vim.defer_fn(function()
         incremental_selection = {
             enable = true,
             keymaps = {
+                -- <c-space> doesn't work on Windows terminal, also <M-space> is reserved for a launcher
+                -- TODO chenge the keybinds
                 init_selection = '<c-space>',
                 node_incremental = '<c-space>',
                 scope_incremental = '<c-s>',
@@ -231,13 +238,13 @@ local on_attach = function(_, bufnr)
     end, '[W]orkspace [L]ist Folders')
 
     -- Create a command `:Format` local to the LSP buffer
-    -- not sure if I will be using it as I have spc f as the format script
+    -- I have spc f as the format script, could probably delete this
     vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
         vim.lsp.buf.format()
     end, { desc = 'Format current buffer with LSP' })
 
-    -- this is some rust lsp thing, not sure if I should run it or not
-    -- require'completion'.on_attach(client) 
+    -- this is from rust lsp config, not sure if I should run it or not
+    -- require'completion'.on_attach(client)
 end
 
 
@@ -372,18 +379,18 @@ cmp.setup {
     sources = {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
-        { name = 'path' },                              -- file paths
-        { name = 'nvim_lsp_signature_help'},            -- display function signatures with current parameter emphasized
+        { name = 'path' },                                       -- file paths
+        { name = 'nvim_lsp_signature_help' },                    -- display function signatures with current parameter emphasized
         -- { name = 'nvim_lua', keyword_length = 2},       -- complete neovim's Lua runtime API such vim.lsp.*
-        { name = 'buffer', keyword_length = 2 },        -- source current buffer
-        { name = 'vsnip', keyword_length = 2 },         -- nvim-cmp source for vim-vsnip 
-        { name = 'calc'},                               -- source for math calculation
+        { name = 'buffer',                 keyword_length = 2 }, -- source current buffer
+        { name = 'vsnip',                  keyword_length = 2 }, -- nvim-cmp source for vim-vsnip
+        { name = 'calc' },                                       -- source for math calculation
     },
 }
 
 
 -- [[ Harpoon config ]]
--- this is useful for binding a few files (3-4) that you come back to in the span of few minutes
+-- this is useful for binding a few files (3-4) that you come back to in the span of few seconds/minutes
 -- TODO not sure if I want to use it - the global marks seem to be fulfilling this functionality already
 --
 -- local mark = require('harpoon.mark')
@@ -409,14 +416,10 @@ cmp.setup {
 -- [[ Undotree config ]]
 -- small version control using the undo history
 -- very useful for when you undo something, then make changes and want to go back to the previous version that would normally be inaccessible
--- TODO make the tree focus on the 
 vim.keymap.set('n', "<leader>u", function()
     vim.cmd.UndotreeToggle()
     vim.cmd.UndotreeFocus()
-end, {desc =  '[u]ndo tree' })
--- require('which-key').register {
---     ['<leader>u'] = { name = '[u]ndo tree',  _ = 'which_key_ignore' },
--- }
+end, { desc = '[u]ndo tree' })
 
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, {desc = '[f]ormat using LSP'} )
-
+--
+vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, { desc = '[f]ormat using LSP' })

@@ -1,10 +1,8 @@
--- TODO make a command/alias that opens this file and changes the working directory to nvim config dir
 -- Based on kickstart.nvim
 -- - Structure of the config:
 -- - lua/core - vanilla vim configs (settings, keybinds)
--- - lua/plugins - plugins install and their configs
--- - after/plugin - non lazy.nvim configs for plugins
--- check obsidian://open?vault=MainVault&file=General%20vim%20config for more info (private repo, for my eyes only)
+-- - lua/plugins - plugins setup through lazynvim
+-- - after/plugin - scripts, plugin configs sourced after lazynvim's setup
 
 vim.g.mapleader = ' '
 vim.g.localmapleader = ' '
@@ -31,7 +29,6 @@ vim.opt.rtp:prepend(lazypath)
 -- PLUGINS
 
 -- The Plugins variable is used for testing new plugins
--- TODO put the tested and confirmed plugins into their respective lua files in the lua folder
 Plugins = {
 
     -- TODO figure what it it for and how to use it

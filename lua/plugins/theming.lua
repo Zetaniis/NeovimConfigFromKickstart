@@ -1,8 +1,7 @@
 return {
 
     -- THEMES
-    -- TODO find a scheme for both whole vim and lualine
-    -- TODO try changing the background to very dark and see which one I like
+
     -- {
     --     "folke/tokyonight.nvim",
     --     lazy = false, -- make sure we load this during startup if it is your main colorscheme
@@ -62,6 +61,7 @@ return {
     --     dependencies = "rktjmp/lush.nvim",
     -- },
 
+    -- for testing and editing themeing on the fly
     { 'rktjmp/lush.nvim' },
 
 }

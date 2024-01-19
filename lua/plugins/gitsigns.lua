@@ -17,7 +17,6 @@ return {
                 vim.keymap.set('n', '<leader>hp', require('gitsigns').preview_hunk, { buffer = bufnr, desc = 'Preview git hunk' })
 
                 -- don't override the built-in and fugitive keymaps
-                -- not sure what's going on here TODO
                 local gs = package.loaded.gitsigns
                 vim.keymap.set({ 'n', 'v' }, ']c', function()
                 if vim.wo.diff then

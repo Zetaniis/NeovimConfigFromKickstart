@@ -1,5 +1,6 @@
-# My neovim lua config
-
+# My neovim config
+First attempt at making neovim daily driver config. Work in progress. 
+Based on [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim). 
 Using [lazy.nvim](https://github.com/folke/lazy.nvim) as a package manager. 
 
 ## Requirements

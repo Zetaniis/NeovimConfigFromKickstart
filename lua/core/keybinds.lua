@@ -59,3 +59,6 @@ vim.keymap.set("x", "<leader>P", [["_dP]], { desc = '[P]aste over and retain reg
 
 -- replacing the word that your cursor is on
 vim.keymap.set("n", "<leader>S", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = 'Replace under cursor' })
+
+-- TODO 
+-- add some nice way of inputting terminal commands - :term could be useful

@@ -249,7 +249,9 @@ end
 
 
 -- add key chains to which-key
-require('which-key').register {
+local wk = require('which-key')
+
+wk.register {
     ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
     ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
     ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
@@ -259,7 +261,18 @@ require('which-key').register {
     ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
     ['<leader>m'] = { name = '[M] Split/join code block', _ = 'which_key_ignore' },
 }
---
+
+-- add vanilla vim motions that aren't setup by which-key presets in preview
+wk.register({
+    ["<C-w>K"] = "Move current window up-most",
+    ["<C-w>J"] = "Move current window down-most",
+    ['<C-w>H'] = "Move currentqwindow left-most",
+    ['<C-w>L'] = "Move current window right-most",
+    ["<C-w>r"] = "Rotate windows downwards/rightwards",
+    ['<C-w>R'] = "Rotate windows upwards/leftwards",
+    ['<C-w>x'] = "Exchange current with next",
+} , {preset = true}
+)
 
 
 -- mason-lspconfig requires that these setup functions are called in this order

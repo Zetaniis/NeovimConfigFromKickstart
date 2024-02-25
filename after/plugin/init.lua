@@ -1,3 +1,7 @@
+-- Defer used in order not to load the lazy plugin manager after this file
+-- TODO I should probably split this file and move the contents to the repective lua folders
+vim.defer_fn(function()
+
 -- TODO break down this file into smaller ones
 
 -- [[ Configure theming ]]
@@ -436,3 +440,5 @@ end, { desc = '[u]ndo tree' })
 
 --
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, { desc = '[f]ormat using LSP' })
+
+end, 0)

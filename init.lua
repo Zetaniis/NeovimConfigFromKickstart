@@ -40,9 +40,13 @@ Opts = {
 
 }
 
-require("lazy").setup(
-    {
-        { import = "plugins" },
-        { Plugins },
-    }
-    , Opts)
+-- I don't know if this is safe to defer the plugin manager, but as long as it doesn't break I can have a close to 0ms startup time
+vim.defer_fn(function()
+    require("lazy").setup(
+        {
+            { import = "plugins" },
+            { Plugins },
+        }
+        , Opts)
+
+end, 0)

@@ -21,7 +21,14 @@ vim.keymap.set({ 'n', 'v' }, '<Leader>vc', function()
     { desc = 'Edit [v]IM [c]onfiguration' })
 
 
-vim.keymap.set({ 'n', 'v' }, '<Leader>pv', vim.cmd.Ex, { desc = 'Open vim file explorer' })
+vim.keymap.set({ 'n', 'v' }, '<Leader>pe', vim.cmd.Ex, { desc = 'Open vim file explorer' })
+
+-- TODO
+-- figure out a language agnostic way of running project code
+vim.keymap.set({ 'n', 'v' }, '<Leader>pb', "", { desc = 'Build project (TODO)' })
+vim.keymap.set({ 'n', 'v' }, '<Leader>pd', "", { desc = 'Debug project (TODO)' })
+vim.keymap.set({ 'n', 'v' }, '<Leader>pt', "", { desc = 'Test project (TODO)' })
+vim.keymap.set({ 'n', 'v' }, '<Leader>pr', "", { desc = 'Run project (TODO)' })
 
 
 -- moving line
@@ -58,7 +65,11 @@ vim.keymap.set("x", "<leader>P", [["_dP]], { desc = '[P]aste over and retain reg
 -- vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 -- replacing the word that your cursor is on
-vim.keymap.set("n", "<leader>S", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = 'Replace under cursor' })
+vim.keymap.set("n", "<leader>S", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+    { desc = 'Replace under cursor' })
 
--- TODO 
+-- TODO
 -- add some nice way of inputting terminal commands - :term could be useful
+--
+-- TODO
+-- vim.keymap.set("n, v", "<C-w>u", "", { desc = '[u]ndo last window change (TODO)' })

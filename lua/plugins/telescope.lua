@@ -1,10 +1,10 @@
 return {
 
     -- Fuzzy Finder (files, lsp, etc)
-    -- TODO figure this out
     {
         'nvim-telescope/telescope.nvim',
         branch = '0.1.x',
+        -- cmd = "Telescope",
         dependencies = {
             'nvim-lua/plenary.nvim',
             -- Fuzzy Finder Algorithm which requires local dependencies to be built.

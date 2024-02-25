@@ -36,7 +36,8 @@ return {
     --         vim.cmd([[colorscheme kanagawa]])
     --     end,
     -- },
-    --
+
+
     -- {
     --     'AlexvZyl/nordic.nvim',
     --     lazy = false,

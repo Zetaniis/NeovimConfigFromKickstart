@@ -264,13 +264,15 @@ wk.register {
     ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
     ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
     ['<leader>m'] = { name = '[M] Split/join code block', _ = 'which_key_ignore' },
+    ['<leader>p'] = { name = '[P]roject', _ = 'which_key_ignore' },
+    ['<leader>v'] = { name = '[V]im', _ = 'which_key_ignore' },
 }
 
 -- add vanilla vim motions that aren't setup by which-key presets in preview
 wk.register({
     ["<C-w>K"] = "Move current window up-most",
     ["<C-w>J"] = "Move current window down-most",
-    ['<C-w>H'] = "Move currentqwindow left-most",
+    ['<C-w>H'] = "Move current window left-most",
     ['<C-w>L'] = "Move current window right-most",
     ["<C-w>r"] = "Rotate windows downwards/rightwards",
     ['<C-w>R'] = "Rotate windows upwards/leftwards",

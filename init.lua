@@ -35,11 +35,19 @@ Plugins = {
 }
 
 Opts = {
+    performance = {
+        rtp = {
+            disabled_plugins = {
+                -- "matchit",
+            },
+        },
+    },
 
 }
 
 -- I don't know if this is safe to defer the plugin manager, but as long as it doesn't break I can have a close to 0ms startup time
-vim.defer_fn(function()
+-- breaks matchit#Match_wrapper (% key)
+-- vim.defer_fn(function()
     require("lazy").setup(
         {
             { import = "plugins" },
@@ -47,4 +55,4 @@ vim.defer_fn(function()
         }
         , Opts)
 
-end, 0)
+-- end, 0)

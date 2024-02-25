@@ -14,21 +14,21 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open float
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
 -- opening base config file for neovim - init.lua - and changing working directory to the config one
-vim.keymap.set({ 'n', 'v' }, '<Leader>vc', function()
+vim.keymap.set({ 'n' }, '<Leader>vc', function()
         vim.cmd([[cd `=stdpath("config")`]])
         vim.cmd([[e init.lua]])
     end,
     { desc = 'Edit [v]IM [c]onfiguration' })
 
 
-vim.keymap.set({ 'n', 'v' }, '<Leader>pe', vim.cmd.Ex, { desc = 'Open vim file explorer' })
+vim.keymap.set({ 'n' }, '<Leader>pe', vim.cmd.Ex, { desc = 'Open vim file explorer' })
 
 -- TODO
 -- figure out a language agnostic way of running project code
-vim.keymap.set({ 'n', 'v' }, '<Leader>pb', "TODO", { desc = 'Build project (TODO)' })
-vim.keymap.set({ 'n', 'v' }, '<Leader>pd', "TODO", { desc = 'Debug project (TODO)' })
-vim.keymap.set({ 'n', 'v' }, '<Leader>pt', "TODO", { desc = 'Test project (TODO)' })
-vim.keymap.set({ 'n', 'v' }, '<Leader>pr', "TODO", { desc = 'Run project (TODO)' })
+vim.keymap.set({ 'n' }, '<Leader>pb', "TODO", { desc = '[b]uild project (TODO)' })
+vim.keymap.set({ 'n' }, '<Leader>pd', "TODO", { desc = '[d]ebug project (TODO)' })
+vim.keymap.set({ 'n' }, '<Leader>pt', "TODO", { desc = '[t]est project (TODO)' })
+vim.keymap.set({ 'n' }, '<Leader>pr', "TODO", { desc = '[r]un project (TODO)' })
 
 
 -- moving line
@@ -56,7 +56,6 @@ vim.keymap.set("x", "<leader>P", [["_dP]], { desc = '[P]aste over and retain reg
 -- vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
 -- vim.keymap.set("n", "<leader>Y", [["+Y]])
 
--- TODO if I ever get to using a cli session manager (eg. tmux) it would be wise to have a keybind that lists all sessions and swap between them seamlessly
 
 -- TODO research quickfix and quickfix navigation
 -- vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
@@ -72,7 +71,8 @@ vim.keymap.set("n", "<leader>S", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 -- add some nice way of inputting terminal commands - :term could be useful
 --
 -- TODO
-vim.keymap.set({"n", "v"}, "<C-w>u", "TODO", { desc = '[u]ndo last window change (TODO)' })
+vim.keymap.set({"n"}, "<C-w>u", "TODO", { desc = '[u]ndo last window change (TODO)' })
 
 
-vim.keymap.set({"n", "v"}, "<leader>sn", ":nohlsearch<CR>", { desc = '[n]o search highlight' })
+vim.keymap.set({"n"}, "<leader>sn", ":nohlsearch<CR>", { desc = '[n]o search highlight' })
+

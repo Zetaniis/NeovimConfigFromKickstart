@@ -117,14 +117,15 @@ vim.keymap.set('n', '<leader>/', function()
 end, { desc = '[/] Fuzzily search in current buffer' })
 
 
-vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
-vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
-vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
-vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
-vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
-vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
-vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
-vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
+vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [g]it [f]iles' })
+vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[s]earch [f]iles' })
+vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[s]earch [h]elp' })
+vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[s]earch current [w]ord' })
+vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[s]earch by [g]rep' })
+vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[s]earch by [g]rep on git root' })
+vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[s]earch [d]iagnostics' })
+vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[s]earch [r]esume' })
+vim.keymap.set('n', '<leader>sk', require('telescope.builtin').keymaps, { desc = '[s]earch [k]ey maps' })
 
 
 -- See `:help nvim-treesitter`
@@ -219,27 +220,27 @@ local on_attach = function(_, bufnr)
 
 
 
-    nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-    nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+    nmap('<leader>rn', vim.lsp.buf.rename, '[r]e[n]ame')
+    nmap('<leader>ca', vim.lsp.buf.code_action, '[c]ode [a]ction')
 
-    nmap('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
-    nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-    nmap('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-    nmap('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
-    nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-    nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+    nmap('gd', require('telescope.builtin').lsp_definitions, '[g]oto [d]efinition')
+    nmap('gr', require('telescope.builtin').lsp_references, '[g]oto [r]eferences')
+    nmap('gI', require('telescope.builtin').lsp_implementations, '[g]oto [i]mplementation')
+    nmap('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [d]efinition')
+    nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[d]ocument [s]ymbols')
+    nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[w]orkspace [s]ymbols')
 
     -- See `:help K` for why this keymap
     nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
     nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
     -- Lesser used LSP functionality
-    nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-    nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
-    nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
+    nmap('gD', vim.lsp.buf.declaration, '[g]oto [d]eclaration')
+    nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[w]orkspace [a]dd folder')
+    nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[w]orkspace [r]emove folder')
     nmap('<leader>wl', function()
         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-    end, '[W]orkspace [L]ist Folders')
+    end, '[w]orkspace [l]ist folders')
 
     -- Create a command `:Format` local to the LSP buffer
     -- I have spc f as the format script, could probably delete this
@@ -256,16 +257,16 @@ end
 local wk = require('which-key')
 
 wk.register {
-    ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-    ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
-    ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
-    ['<leader>h'] = { name = 'More git', _ = 'which_key_ignore' },
-    ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-    ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-    ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-    ['<leader>m'] = { name = '[M] Split/join code block', _ = 'which_key_ignore' },
-    ['<leader>p'] = { name = '[P]roject', _ = 'which_key_ignore' },
-    ['<leader>v'] = { name = '[V]im', _ = 'which_key_ignore' },
+    ['<leader>c'] = { name = '[c]ode', _ = 'which_key_ignore' },
+    ['<leader>d'] = { name = '[d]ocument', _ = 'which_key_ignore' },
+    ['<leader>g'] = { name = '[g]it', _ = 'which_key_ignore' },
+    -- ['<leader>h'] = { name = 'More git', _ = 'which_key_ignore' },
+    ['<leader>r'] = { name = '[r]ename', _ = 'which_key_ignore' },
+    ['<leader>s'] = { name = '[s]earch', _ = 'which_key_ignore' },
+    ['<leader>w'] = { name = '[w]orkspace', _ = 'which_key_ignore' },
+    ['<leader>m'] = { name = '[m] Split/join code block', _ = 'which_key_ignore' },
+    ['<leader>p'] = { name = '[p]roject', _ = 'which_key_ignore' },
+    ['<leader>v'] = { name = '[v]im', _ = 'which_key_ignore' },
 }
 
 -- add vanilla vim motions that aren't setup by which-key presets in preview
@@ -277,6 +278,8 @@ wk.register({
     ["<C-w>r"] = "Rotate windows downwards/rightwards",
     ['<C-w>R'] = "Rotate windows upwards/leftwards",
     ['<C-w>x'] = "Exchange current with next",
+    ['g#'] = "Search term under cursor",
+    ['g*'] = "Search term under cursor",
 } , {preset = true}
 )
 
@@ -443,4 +446,38 @@ end, { desc = '[u]ndo tree' })
 --
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, { desc = '[f]ormat using LSP' })
 
-end, 0)
+
+-- [[ Hop config ]]
+local hop = require('hop')
+local directions = require('hop.hint').HintDirection
+
+vim.keymap.set("n", "<leader>h", function ()
+    hop.hint_words({})
+end, { desc = '[h]op to word' })
+vim.keymap.set("n", "<leader>jj", function ()
+    hop.hint_char1({})
+end, { desc = '[j]ump to char' }) -- don't need that as I override the the fFtT keys with this one
+vim.keymap.set("n", "<leader>jJ", function()
+    hop.hint_char2({})
+end, { desc = '[J]ump to 2chars' })
+vim.keymap.set("n", "<leader>jl", function ()
+    hop.hint_lines({})
+end, { desc = '[j]ump to [l]ine' })
+vim.keymap.set("n", "<leader>ju", function ()
+    hop.hint_patterns({}, "https*://")
+end,{ desc = '[j]ump to [u]rl' })
+
+vim.keymap.set('', 'f', function()
+  hop.hint_char1({ direction = directions.AFTER_CURSOR, })
+end, {remap=true})
+vim.keymap.set('', 'F', function()
+  hop.hint_char1({ direction = directions.BEFORE_CURSOR, })
+end, {remap=true})
+vim.keymap.set('', 't', function()
+  hop.hint_char1({ direction = directions.AFTER_CURSOR, hint_offset = -1 })
+end, {remap=true})
+vim.keymap.set('', 'T', function()
+  hop.hint_char1({ direction = directions.BEFORE_CURSOR, hint_offset = 1 })
+end, {remap=true})
+
+end, 50)

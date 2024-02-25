@@ -63,3 +63,6 @@ vim.opt.scrolloff = 5
 
 -- open help command in the right vertical window
 vim.cmd([[:cabbrev h vert bo help ]])
+
+-- h and l wrap on ends of the line
+vim.cmd([[set whichwrap+=h,l]])

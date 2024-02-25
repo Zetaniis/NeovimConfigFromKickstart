@@ -25,10 +25,10 @@ vim.keymap.set({ 'n', 'v' }, '<Leader>pe', vim.cmd.Ex, { desc = 'Open vim file e
 
 -- TODO
 -- figure out a language agnostic way of running project code
-vim.keymap.set({ 'n', 'v' }, '<Leader>pb', "", { desc = 'Build project (TODO)' })
-vim.keymap.set({ 'n', 'v' }, '<Leader>pd', "", { desc = 'Debug project (TODO)' })
-vim.keymap.set({ 'n', 'v' }, '<Leader>pt', "", { desc = 'Test project (TODO)' })
-vim.keymap.set({ 'n', 'v' }, '<Leader>pr', "", { desc = 'Run project (TODO)' })
+vim.keymap.set({ 'n', 'v' }, '<Leader>pb', "TODO", { desc = 'Build project (TODO)' })
+vim.keymap.set({ 'n', 'v' }, '<Leader>pd', "TODO", { desc = 'Debug project (TODO)' })
+vim.keymap.set({ 'n', 'v' }, '<Leader>pt', "TODO", { desc = 'Test project (TODO)' })
+vim.keymap.set({ 'n', 'v' }, '<Leader>pr', "TODO", { desc = 'Run project (TODO)' })
 
 
 -- moving line
@@ -72,4 +72,7 @@ vim.keymap.set("n", "<leader>S", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 -- add some nice way of inputting terminal commands - :term could be useful
 --
 -- TODO
--- vim.keymap.set("n, v", "<C-w>u", "", { desc = '[u]ndo last window change (TODO)' })
+vim.keymap.set({"n", "v"}, "<C-w>u", "TODO", { desc = '[u]ndo last window change (TODO)' })
+
+
+vim.keymap.set({"n", "v"}, "<leader>sn", ":nohlsearch<CR>", { desc = '[n]o search highlight' })

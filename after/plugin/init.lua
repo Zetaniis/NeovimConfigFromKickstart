@@ -143,7 +143,7 @@ vim.defer_fn(function()
             enable = true,
             keymaps = {
                 -- <c-space> doesn't work on Windows terminal, also <M-space> is reserved for a launcher
-                -- TODO chenge the keybinds
+                -- TODO change the keybinds
                 init_selection = '<c-space>',
                 node_incremental = '<c-space>',
                 scope_incremental = '<c-s>',

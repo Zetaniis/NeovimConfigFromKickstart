@@ -31,8 +31,6 @@ vim.opt.rtp:prepend(lazypath)
 -- The Plugins variable is used for testing new plugins
 Plugins = {
 
-    -- TODO figure what it it for and how to use it
-    -- tpope/vim-sleuth
 
 }
 

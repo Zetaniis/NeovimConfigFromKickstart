@@ -4,6 +4,7 @@ return {
         -- Adds git related signs to the gutter, as well as utilities for managing changes
         -- TODO check out the keymaps for some cool git magic https://github.com/lewis6991/gitsigns.nvim?tab=readme-ov-file#keymaps
         'lewis6991/gitsigns.nvim',
+        -- lazy = true,
         opts = {
             -- See `:help gitsigns.txt`
             --         signs = {

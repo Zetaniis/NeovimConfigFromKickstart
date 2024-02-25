@@ -61,7 +61,5 @@ vim.opt.scrolloff = 5
 -- vim.opt.isfname:append("@-@")
 
 
-
-
-
-
+-- open help command in the right vertical window
+vim.cmd([[:cabbrev h vert bo help ]])

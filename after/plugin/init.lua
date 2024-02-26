@@ -32,7 +32,7 @@ vim.defer_fn(function()
             },
             -- TODO
             -- find a better way of making telescope fullscreen
-            layout_config = { horizontal = { width = 0.9999, height = 0.9999 }, vertical = { width = 0.9999, height = 0.9999 } },
+            layout_config = { horizontal = { width = { padding = 0 }, height = {padding=0} }, vertical = { width = { padding = 0 }, height = {padding=0} } },
 
         },
     }
@@ -266,7 +266,7 @@ vim.defer_fn(function()
         ['<C-w>x'] = "Exchange current with next",
         ['g#'] = "Search term under cursor",
         ['g*'] = "Search term under cursor",
-        ['<leader>fb'] = { name = 'split/join code [b]lock', _ = 'which_key_ignore' },
+        ['<leader>fb'] = 'split/join code [b]lock',
     }, { preset = true }
     )
 
@@ -514,7 +514,7 @@ vim.defer_fn(function()
     vim.keymap.set("n", "<leader>tW", "TODO", { desc = '[t]oggle ignore trim [w]hitespace in diff (TODO)' })
     vim.keymap.set("n", "<leader>tc", "TODO", { desc = '[t]oggle find [c]ase insensitive (TODO)' })
     -- <c-w> o is good enough
-    -- vim.keymap.set("n", "<leader>tz", "TODO", { desc = '[t]oggle [z]en mode (TODO)' }) 
+    -- vim.keymap.set("n", "<leader>tz", "TODO", { desc = '[t]oggle [z]en mode (TODO)' })
     vim.keymap.set("n", "<leader>tt", "TODO", { desc = '[t]oggle [t]heme (TODO)' })
     vim.keymap.set('n', "<leader>tu", function()
         vim.cmd.UndotreeToggle()
@@ -535,6 +535,6 @@ vim.defer_fn(function()
     -- TODO organize imports
     -- vim.lsp.buf.execute_command({command = "_typescript.organizeImports", arguments = {vim.fn.expand("%:p")}})
     --
-    -- TODO 
+    -- TODO
     -- rename file with LSP or something in order to preserve the references
 end, 50)

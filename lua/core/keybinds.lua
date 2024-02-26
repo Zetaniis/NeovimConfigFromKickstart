@@ -7,11 +7,6 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
--- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
 -- opening base config file for neovim - init.lua - and changing working directory to the config one
 vim.keymap.set({ 'n' }, '<Leader>vc', function()
@@ -21,7 +16,7 @@ vim.keymap.set({ 'n' }, '<Leader>vc', function()
     { desc = 'Edit [v]IM [c]onfiguration' })
 
 
-vim.keymap.set({ 'n' }, '<Leader>pe', vim.cmd.Ex, { desc = 'Open vim file explorer' })
+vim.keymap.set({ 'n' }, '<Leader>ve', vim.cmd.Ex, { desc = 'Open [v]im file [e]xplorer' })
 
 -- TODO
 -- figure out a language agnostic way of running project code
@@ -64,15 +59,12 @@ vim.keymap.set("x", "<leader>P", [["_dP]], { desc = '[P]aste over and retain reg
 -- vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 -- replacing the word that your cursor is on
-vim.keymap.set("n", "<leader>S", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-    { desc = 'Replace under cursor' })
+vim.keymap.set("n", "<leader>rc", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+    { desc = '[r]eplace under [c]ursor' })
 
--- TODO
--- add some nice way of inputting terminal commands - :term could be useful
---
--- TODO
+
 vim.keymap.set({"n"}, "<C-w>u", "TODO", { desc = '[u]ndo last window change (TODO)' })
 
 
-vim.keymap.set({"n"}, "<leader>sn", ":nohlsearch<CR>", { desc = '[n]o search highlight' })
+vim.keymap.set({"n"}, "<leader>sn", ":nohlsearch<CR>", { desc = '[n]o [s]earch highlight' })
 

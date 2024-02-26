@@ -18,9 +18,27 @@ return {
         -- priority = 1000,
         config = function()
             require('onedark').setup({
-                style='darker'
+                style = 'darker'
             })
             vim.cmd.colorscheme 'onedark'
+
+            -- vim.cmd([[
+            --     hi Normal guibg='#000000'
+            -- ]])
+            --
+            -- vim.cmd([[
+            --     hi EndOfBuffer guibg='#000000'
+            -- ]])
+            --
+            -- vim.cmd([[
+            --     hi SignColumn guibg='#000000'
+            -- ]])
+
+            -- this, I think is a better way than the above
+            vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+            -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#111111"} )
+            vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+            vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
         end,
     },
 

@@ -30,8 +30,6 @@ vim.defer_fn(function()
                     ['<C-d>'] = false,
                 },
             },
-            -- TODO
-            -- find a better way of making telescope fullscreen
             layout_config = { horizontal = { width = { padding = 0 }, height = {padding=0} }, vertical = { width = { padding = 0 }, height = {padding=0} } },
 
         },
@@ -251,7 +249,7 @@ vim.defer_fn(function()
         ['<leader>f'] = { name = '[f]ormat', _ = 'which_key_ignore' },
         ['<leader>i'] = { name = '[i]nsert', _ = 'which_key_ignore' },
         ['<leader>t'] = { name = '[t]oggle', _ = 'which_key_ignore' },
-        ['<leader>e'] = { name = '[d]iagnostics', _ = 'which_key_ignore' },
+        ['<leader>e'] = { name = '[e] diagnostics', _ = 'which_key_ignore' },
     }
 
     -- add vanilla vim motions that aren't setup by which-key presets in preview
@@ -502,6 +500,8 @@ vim.defer_fn(function()
     vim.keymap.set("n", "<leader>ft", "TODO", { desc = 'convert indentation to [t]abs (TODO)' })
     vim.keymap.set("n", "<leader>fs", "TODO", { desc = 'convert indentation to [s]paces (TODO)' })
     vim.keymap.set("n", "<leader>ff", vim.lsp.buf.format, { desc = '[f]ormat using LSP' })
+    vim.keymap.set("n", "<leader>fu", ":update | e ++ff=dos | setlocal ff=unix | w<CR>", { desc = 'dos2[u]nix' })
+    vim.keymap.set("n", "<leader>fU", ":update | e ++ff=dos | w<CR>", { desc = '[U]nix2dos' })
 
     -- [[insert layer]]
 
@@ -532,6 +532,10 @@ vim.defer_fn(function()
     vim.keymap.set('n', '<leader>en', vim.diagnostic.goto_next, { desc = 'Go to [n]ext diagnostic message' })
     vim.keymap.set('n', '<leader>es', vim.diagnostic.open_float, { desc = '[s]how floating diagnostic message' })
     vim.keymap.set('n', '<leader>el', vim.diagnostic.setloclist, { desc = 'open diagnostics [l]ist' })
+
+    -- [[buffer layer]]
+    vim.keymap.set('n', '<leader>b', "bd", { desc = 'open diagnostics [l]ist' })
+
     -- TODO organize imports
     -- vim.lsp.buf.execute_command({command = "_typescript.organizeImports", arguments = {vim.fn.expand("%:p")}})
     --

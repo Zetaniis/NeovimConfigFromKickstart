@@ -403,7 +403,7 @@ vim.defer_fn(function()
     local ui = require('harpoon.ui')
 
     vim.keymap.set('n', '<leader>a', mark.add_file, { desc = "[a]dd buffer to harpoon" })
-    vim.keymap.set('n', '<leader>hl', ui.toggle_quick_menu,{ desc = "[l]ist harpooned buffers" } )
+    vim.keymap.set('n', '<leader>sH', ui.toggle_quick_menu, { desc = "[s]earch [H]arpooned buffers" })
     vim.keymap.set('n', '<leader>7', function()
         ui.nav_file(1)
     end, { desc = "1 Harpooned buffer" })

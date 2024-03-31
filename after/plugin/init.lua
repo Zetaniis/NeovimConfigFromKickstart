@@ -398,26 +398,27 @@ vim.defer_fn(function()
 
     -- [[ Harpoon config ]]
     -- this is useful for binding a few files (3-4) that you come back to in the span of few seconds/minutes
-    -- TODO not sure if I want to use it - the global marks seem to be fulfilling this functionality already
-    --
-    -- local mark = require('harpoon.mark')
-    -- local ui = require('harpoon.ui')
-    --
-    -- vim.keymap.set('n', '<leader>ha', mark.add_file)
-    -- vim.keymap.set('n', '<leader>hl', ui.toggle_quick_menu)
-    --
-    -- vim.keymap.set('n', '<C-a>', function ()
-    --     ui.nav_file(1)
-    -- end)
-    -- vim.keymap.set('n', '<C-a>', function ()
-    --     ui.nav_file(1)
-    -- end)
-    -- vim.keymap.set('n', '<C-a>', function ()
-    --     ui.nav_file(1)
-    -- end)
-    -- vim.keymap.set('n', '<C-a>', function ()
-    --     ui.nav_file(1)
-    -- end)
+
+    local mark = require('harpoon.mark')
+    local ui = require('harpoon.ui')
+
+    vim.keymap.set('n', '<leader>a', mark.add_file, { desc = "[a]dd buffer to harpoon" })
+    vim.keymap.set('n', '<leader>hl', ui.toggle_quick_menu,{ desc = "[l]ist harpooned buffers" } )
+    vim.keymap.set('n', '<leader>7', function()
+        ui.nav_file(1)
+    end, { desc = "1 Harpooned buffer" })
+    vim.keymap.set('n', '<leader>8', function()
+        ui.nav_file(2)
+    end, { desc = "2 Harpooned buffer" })
+    vim.keymap.set('n', '<leader>9', function()
+        ui.nav_file(3)
+    end, { desc = "3 Harpooned buffer" })
+    vim.keymap.set('n', '<leader>0', function()
+        ui.nav_file(4)
+    end, { desc = "4 Harpooned buffer" })
+    vim.keymap.set('n', '<leader>6', function()
+        ui.nav_file(5)
+    end, { desc = "5 Harpooned buffer" })
 
     -- [[Window layer]]
     -- <leader>w is <C-w>, no which-key preview for now
@@ -572,6 +573,6 @@ vim.defer_fn(function()
     for i = 1, 5 do
         vim.keymap.set('n', '<leader>' .. i, i .. "gt", { desc = 'tab ' .. i })
     end
-    vim.keymap.set("n", "<Leader>tn", "<cmd> tabnew<CR>", { desc = "[N]ew tab" })
-    vim.keymap.set("n", "<Leader>td", "<cmd> tabclose<CR>", { desc = "[D]elete tab" })
+    vim.keymap.set("n", "<Leader>tn", "<cmd> tabnew<CR>", { desc = "[n]ew tab" })
+    vim.keymap.set("n", "<Leader>td", "<cmd> tabclose<CR>", { desc = "[d]elete tab" })
 end, 50)

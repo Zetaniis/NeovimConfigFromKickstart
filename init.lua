@@ -9,8 +9,7 @@ vim.g.localmapleader = ' '
 
 require('core')
 
--- TODO 
--- add 
+
 
 -- lazy.nvim package manager bootstrap
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

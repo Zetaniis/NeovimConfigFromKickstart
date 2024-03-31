@@ -67,3 +67,6 @@ vim.cmd([[:cabbrev h vert bo help ]])
 
 -- h and l wrap on ends of the line
 vim.cmd([[set whichwrap+=h,l]])
+
+-- vertsplit new window to the right
+vim.opt.splitright = true

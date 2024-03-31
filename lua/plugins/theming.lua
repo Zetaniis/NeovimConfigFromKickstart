@@ -15,30 +15,36 @@ return {
     {
         -- Theme inspired by Atom
         'navarasu/onedark.nvim',
-        -- priority = 1000,
+        priority = 1000,
         config = function()
             require('onedark').setup({
+                transparent = true,
+                lualine = {
+                    transparent = true, -- lualine center bar transparency
+                },
                 style = 'darker'
             })
             vim.cmd.colorscheme 'onedark'
-
-            -- vim.cmd([[
-            --     hi Normal guibg='#000000'
-            -- ]])
+            -- using transparent = true to get transparency 
+            -- the above are some tricks to make the transparency in a situation where the nvim package doesn't support it
             --
-            -- vim.cmd([[
-            --     hi EndOfBuffer guibg='#000000'
-            -- ]])
+            -- -- vim.cmd([[
+            -- --     hi Normal guibg='#000000'
+            -- -- ]])
+            -- --
+            -- -- vim.cmd([[
+            -- --     hi EndOfBuffer guibg='#000000'
+            -- -- ]])
+            -- --
+            -- -- vim.cmd([[
+            -- --     hi SignColumn guibg='#000000'
+            -- -- ]])
             --
-            -- vim.cmd([[
-            --     hi SignColumn guibg='#000000'
-            -- ]])
-
-            -- this, I think is a better way than the above
-            vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-            -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#111111"} )
-            vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
-            vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
+            -- -- this, I think is a better way than the above
+            -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+            -- -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#111111"} )
+            -- vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+            -- vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
         end,
     },
 

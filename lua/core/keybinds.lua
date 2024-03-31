@@ -4,8 +4,8 @@
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Remap for dealing with word wrap
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+vim.keymap.set({ 'n', 'v' }, 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set({ 'n', 'v' }, 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 
 -- opening base config file for neovim - init.lua - and changing working directory to the config one
@@ -16,14 +16,18 @@ vim.keymap.set({ 'n' }, '<Leader>vc', function()
     { desc = 'Edit [v]IM [c]onfiguration' })
 
 
-vim.keymap.set({ 'n' }, '<Leader>ve', vim.cmd.Ex, { desc = 'Open [v]im file [e]xplorer' })
+vim.keymap.set({ 'n' }, '<Leader>ve', ':Lex<CR>', { desc = 'Open [v]im file [e]xplorer' })
 
 -- TODO
 -- figure out a language agnostic way of running project code
-vim.keymap.set({ 'n' }, '<Leader>pb', "TODO", { desc = '[b]uild project (TODO)' })
-vim.keymap.set({ 'n' }, '<Leader>pd', "TODO", { desc = '[d]ebug project (TODO)' })
-vim.keymap.set({ 'n' }, '<Leader>pt', "TODO", { desc = '[t]est project (TODO)' })
-vim.keymap.set({ 'n' }, '<Leader>pr', "TODO", { desc = '[r]un project (TODO)' })
+vim.keymap.set({ 'n' }, '<Leader>pb', "TODO", { desc = '[b]uild [p]roject (TODO)' })
+vim.keymap.set({ 'n' }, '<Leader>pd', "TODO", { desc = '[d]ebug [p]roject (TODO)' })
+vim.keymap.set({ 'n' }, '<Leader>pt', "TODO", { desc = '[t]est [p]roject (TODO)' })
+vim.keymap.set({ 'n' }, '<Leader>pr', "TODO", { desc = '[r]un [p]roject (TODO)' })
+vim.keymap.set({ 'n' }, '<Leader>bb', "TODO", { desc = '[b]uild [b]uffer (TODO)' })
+vim.keymap.set({ 'n' }, '<Leader>bd', "TODO", { desc = '[d]ebug [b]uffer (TODO)' })
+vim.keymap.set({ 'n' }, '<Leader>bt', "TODO", { desc = '[t]est [b]uffer (TODO)' })
+vim.keymap.set({ 'n' }, '<Leader>br', "TODO", { desc = '[r]un [b]uffer (TODO)' })
 
 
 -- moving line
@@ -63,8 +67,7 @@ vim.keymap.set("n", "<leader>rc", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left>
     { desc = '[r]eplace under [c]ursor' })
 
 
-vim.keymap.set({"n"}, "<C-w>u", "TODO", { desc = '[u]ndo last window change (TODO)' })
+vim.keymap.set({ "n" }, "<C-w>u", "TODO", { desc = '[u]ndo last window change (TODO)' })
 
 
-vim.keymap.set({"n"}, "<leader>sn", ":nohlsearch<CR>", { desc = '[n]o [s]earch highlight' })
-
+vim.keymap.set({ "n" }, "<leader>sn", ":nohlsearch<CR>", { desc = '[n]o [s]earch highlight' })

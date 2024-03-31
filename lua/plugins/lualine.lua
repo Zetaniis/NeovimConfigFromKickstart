@@ -6,7 +6,8 @@ return {
         opts = {
             options = {
                 icons_enabled = false,
-                theme = 'onedark',
+                color = { gui = '' },
+                -- theme = 'auto',
                 component_separators = '|',
                 section_separators = '',
             },

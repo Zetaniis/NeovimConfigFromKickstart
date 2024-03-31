@@ -30,7 +30,7 @@ vim.defer_fn(function()
                     ['<C-d>'] = false,
                 },
             },
-            layout_config = { horizontal = { width = { padding = 0 }, height = {padding=0} }, vertical = { width = { padding = 0 }, height = {padding=0} } },
+            layout_config = { horizontal = { width = { padding = 0 }, height = { padding = 0 } }, vertical = { width = { padding = 0 }, height = { padding = 0 } } },
 
         },
     }
@@ -264,7 +264,6 @@ vim.defer_fn(function()
         ['<C-w>x'] = "Exchange current with next",
         ['g#'] = "Search term under cursor",
         ['g*'] = "Search term under cursor",
-        ['<leader>fb'] = 'split/join code [b]lock',
     }, { preset = true }
     )
 
@@ -286,8 +285,9 @@ vim.defer_fn(function()
         -- clangd = {},
         -- gopls = {},
         -- pyright = {},
-        -- tsserver = {},
+        tsserver = {},
         -- html = { filetypes = { 'html', 'twig', 'hbs'} },
+        ['bashls'] = { filetypes = { 'bash', 'sh', 'cmd'}, shell = 'sh' },
 
         lua_ls = {
             Lua = {
@@ -419,6 +419,7 @@ vim.defer_fn(function()
     --     ui.nav_file(1)
     -- end)
 
+    -- [[Window layer]]
     -- <leader>w is <C-w>, no which-key preview for now
     vim.keymap.set("n", "<leader>w", "<C-w>", { desc = '[w]indow' })
 
@@ -489,7 +490,7 @@ vim.defer_fn(function()
 
     -- [[Fugitive config]]
 
-    vim.keymap.set("n", "<leader>gg", ":G<CR>", { desc = 'open [g]it tool' })
+    vim.keymap.set("n", "<leader>gg", ":vert G<CR>", { desc = 'open [g]it tool' })
 
 
     -- [[format layer]]
@@ -520,11 +521,11 @@ vim.defer_fn(function()
         vim.cmd.UndotreeToggle()
         vim.cmd.UndotreeFocus()
     end, { desc = 'toggle [u]ndo tree' })
-    vim.keymap.set("n", "<leader>tf", "TODO", { desc = '[t]oggle [f]ile tree (TODO)' })
+    vim.keymap.set("n", "<leader>tf", ":NvimTreeToggle", { desc = '[t]oggle [f]ile tree' })
 
     -- [[diagnostics layer]]
+
     vim.keymap.set("n", "<leader>e.", "TODO", { desc = '[e] diagnostic transient (TODO)' })
-    vim.keymap.set("n", "<leader>tf", "TODO", { desc = '[t]oggle [f]ile tree (TODO)' })
     vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
     vim.keymap.set('n', '<leader>ep', vim.diagnostic.goto_prev, { desc = 'Go to [p]revious diagnostic message' })
     vim.keymap.set('n', '<leader>eN', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
@@ -534,11 +535,36 @@ vim.defer_fn(function()
     vim.keymap.set('n', '<leader>el', vim.diagnostic.setloclist, { desc = 'open diagnostics [l]ist' })
 
     -- [[buffer layer]]
-    vim.keymap.set('n', '<leader>b', "bd", { desc = 'open diagnostics [l]ist' })
+
+    vim.keymap.set('n', '<leader>bd', ":bd<CR>", { desc = '[d]elete [b]uffer' })
 
     -- TODO organize imports
     -- vim.lsp.buf.execute_command({command = "_typescript.organizeImports", arguments = {vim.fn.expand("%:p")}})
     --
     -- TODO
     -- rename file with LSP or something in order to preserve the references
+
+    -- [[Nvim-tree confing]]
+    -- vim.keymap.set("n", "<leader>tf", ":NvimTreeToggle<CR>", { desc = '[t]oggle [f]ile tree' })
+    -- very laggy, discard for now
+    -- vim.g.loaded_netrw       = 1
+    -- vim.g.loaded_netrwPlugin = 1
+    --
+    -- local function my_on_attach(bufnr)
+    --     local api = require "nvim-tree.api"
+    --
+    --     local function opts(desc)
+    --         return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+    --     end
+    --
+    --     -- default mappings
+    --     api.config.mappings.default_on_attach(bufnr)
+    -- end
+    -- require 'nvim-tree'.setup {
+    --     on_attach = my_on_attach
+    -- }
+
+    -- [[ treesj ]]
+    vim.keymap.set({'n', 'v'}, '<leader>fb', ":TSJToggle<CR>", { desc = 'split/join code [b]lock' })
 end, 50)
+

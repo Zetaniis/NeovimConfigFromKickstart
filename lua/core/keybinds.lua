@@ -71,3 +71,8 @@ vim.keymap.set({ "n" }, "<C-w>u", "TODO", { desc = '[u]ndo last window change (T
 
 
 vim.keymap.set({ "n" }, "<leader>sn", ":nohlsearch<CR>", { desc = '[n]o [s]earch highlight' })
+
+-- transient mode for indenting while in selection
+-- https://github.com/ChrisTitusTech/neovim/blob/main/titus-kickstart/lua/keymaps.lua#LL50C1-L51C30
+vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("v", ">", ">gv")

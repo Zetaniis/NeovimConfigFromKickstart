@@ -248,7 +248,7 @@ vim.defer_fn(function()
         ['<leader>j'] = { name = '[j]ump', _ = 'which_key_ignore' },
         ['<leader>f'] = { name = '[f]ormat', _ = 'which_key_ignore' },
         ['<leader>i'] = { name = '[i]nsert', _ = 'which_key_ignore' },
-        ['<leader>t'] = { name = '[t]oggle', _ = 'which_key_ignore' },
+        ['<leader>t'] = { name = '[t]oggle/[t]ab', _ = 'which_key_ignore' },
         ['<leader>e'] = { name = '[e] diagnostics', _ = 'which_key_ignore' },
     }
 
@@ -287,7 +287,7 @@ vim.defer_fn(function()
         -- pyright = {},
         tsserver = {},
         -- html = { filetypes = { 'html', 'twig', 'hbs'} },
-        ['bashls'] = { filetypes = { 'bash', 'sh', 'cmd'}, shell = 'sh' },
+        ['bashls'] = { filetypes = { 'bash', 'sh', 'cmd' }, shell = 'sh' },
 
         lua_ls = {
             Lua = {
@@ -565,6 +565,13 @@ vim.defer_fn(function()
     -- }
 
     -- [[ treesj ]]
-    vim.keymap.set({'n', 'v'}, '<leader>fb', ":TSJToggle<CR>", { desc = 'split/join code [b]lock' })
-end, 50)
+    vim.keymap.set({ 'n', 'v' }, '<leader>fb', ":TSJToggle<CR>", { desc = 'split/join code [b]lock' })
 
+    -- [[ tabs ]]
+    -- gt/gT for next/prev tab
+    for i = 1, 5 do
+        vim.keymap.set('n', '<leader>' .. i, i .. "gt", { desc = 'tab ' .. i })
+    end
+    vim.keymap.set("n", "<Leader>tn", "<cmd> tabnew<CR>", { desc = "[N]ew tab" })
+    vim.keymap.set("n", "<Leader>td", "<cmd> tabclose<CR>", { desc = "[D]elete tab" })
+end, 50)

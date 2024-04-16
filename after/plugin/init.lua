@@ -517,12 +517,12 @@ vim.defer_fn(function()
     vim.keymap.set("n", "<leader>tc", "TODO", { desc = '[t]oggle find [c]ase insensitive (TODO)' })
     -- <c-w> o is good enough
     -- vim.keymap.set("n", "<leader>tz", "TODO", { desc = '[t]oggle [z]en mode (TODO)' })
-    vim.keymap.set("n", "<leader>tt", "TODO", { desc = '[t]oggle [t]heme (TODO)' })
+    vim.keymap.set("n", "<leader>tt", ":Telescope colorscheme<CR>", { desc = '[t]oggle [t]heme' }) -- use nvchad theme picker when it gets into 3.0
     vim.keymap.set('n', "<leader>tu", function()
         vim.cmd.UndotreeToggle()
         vim.cmd.UndotreeFocus()
     end, { desc = 'toggle [u]ndo tree' })
-    vim.keymap.set("n", "<leader>tf", ":NvimTreeToggle", { desc = '[t]oggle [f]ile tree' })
+    vim.keymap.set("n", "<leader>tf", ":NvimTreeToggle<CR>", { desc = '[t]oggle [f]ile tree' })
 
     -- [[diagnostics layer]]
 

@@ -20,6 +20,7 @@ vim.keymap.set({ 'n' }, '<Leader>ve', ':Lex<CR>', { desc = 'Open [v]im file [e]x
 
 -- TODO
 -- figure out a language agnostic way of running project code
+-- maybe have a project depenedant file that stores the commands specific to a project, similarly to vscode
 vim.keymap.set({ 'n' }, '<Leader>pb', "TODO", { desc = '[b]uild [p]roject (TODO)' })
 vim.keymap.set({ 'n' }, '<Leader>pd', "TODO", { desc = '[d]ebug [p]roject (TODO)' })
 vim.keymap.set({ 'n' }, '<Leader>pt', "TODO", { desc = '[t]est [p]roject (TODO)' })

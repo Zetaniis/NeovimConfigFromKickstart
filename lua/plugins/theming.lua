@@ -22,11 +22,13 @@ return {
                 lualine = {
                     transparent = true, -- lualine center bar transparency
                 },
-                style = 'darker'
+                style = 'darker',
+                -- toggle_style_key = '<F2>', -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
+                -- toggle_style_list = { 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light' }, -- List of styles to toggle between
+                -- darker is best for transparent background most of the time
             })
             vim.cmd.colorscheme 'onedark'
-            -- using transparent = true to get transparency 
-            -- the above are some tricks to make the transparency in a situation where the nvim package doesn't support it
+            -- the below are some tricks to make the transparency in a situation where the nvim package doesn't support it
             --
             -- -- vim.cmd([[
             -- --     hi Normal guibg='#000000'
@@ -40,7 +42,7 @@ return {
             -- --     hi SignColumn guibg='#000000'
             -- -- ]])
             --
-            -- -- this, I think is a better way than the above
+            -- 
             -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
             -- -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#111111"} )
             -- vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })

@@ -16,7 +16,10 @@ vim.keymap.set({ 'n' }, '<Leader>vc', function()
     { desc = 'Edit [v]IM [c]onfiguration' })
 
 
-vim.keymap.set({ 'n' }, '<Leader>ve', ':Lex<CR>', { desc = 'Open [v]im file [e]xplorer' })
+-- this option makes the file explorer stay on the side, doesn't seem that great, 
+-- TODO a specific file tree plugin would be optimal
+-- vim.keymap.set({ 'n' }, '<Leader>ve', ':Lex<CR>', { desc = 'Open [v]im file [e]xplorer' })
+vim.keymap.set({ 'n' }, '<Leader>ve', ':ex<CR>', { desc = 'Open [v]im file [e]xplorer' })
 
 -- TODO
 -- figure out a language agnostic way of running project code
@@ -31,9 +34,9 @@ vim.keymap.set({ 'n' }, '<Leader>bt', "TODO", { desc = '[t]est [b]uffer (TODO)' 
 vim.keymap.set({ 'n' }, '<Leader>br', "TODO", { desc = '[r]un [b]uffer (TODO)' })
 
 
--- moving line
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = 'Move line up [v] only' })
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = 'Move line down [v] only' })
+-- moving line - not using it for now, got used to dd and pp
+-- vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = 'Move line up [v] only' })
+-- vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = 'Move line down [v] only' })
 
 -- classic connecting lines,
 vim.keymap.set("n", "J", "J")

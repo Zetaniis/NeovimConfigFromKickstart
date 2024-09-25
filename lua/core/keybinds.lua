@@ -19,7 +19,7 @@ vim.keymap.set({ 'n' }, '<Leader>vc', function()
 -- this option makes the file explorer stay on the side, doesn't seem that great, 
 -- TODO a specific file tree plugin would be optimal
 -- vim.keymap.set({ 'n' }, '<Leader>ve', ':Lex<CR>', { desc = 'Open [v]im file [e]xplorer' })
-vim.keymap.set({ 'n' }, '<Leader>ve', ':ex<CR>', { desc = 'Open [v]im file [e]xplorer' })
+vim.keymap.set({ 'n' }, '<Leader>ve', ':Ex<CR>', { desc = 'Open [v]im file [e]xplorer' })
 
 -- TODO
 -- figure out a language agnostic way of running project code

@@ -282,10 +282,9 @@ vim.defer_fn(function()
     --  If you want to override the default filetypes that your language server will attach to you can
     --  define the property 'filetypes' to the map in question.
     local servers = {
-        -- clangd = {},
         -- gopls = {},
-        -- pyright = {},
-        tsserver = {},
+        ts_ls = { filetypes = {'ts', 'js'} },
+        -- typescript_language_server = {},
         -- html = { filetypes = { 'html', 'twig', 'hbs'} },
         ['bashls'] = { filetypes = { 'bash', 'sh', 'cmd' }, shell = 'sh' },
 
@@ -312,6 +311,9 @@ vim.defer_fn(function()
                 enable = true
             },
         },
+
+        pyright = {},
+        clangd = {},
 
     }
 

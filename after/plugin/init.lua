@@ -235,37 +235,49 @@ vim.defer_fn(function()
     local wk = require('which-key')
 
     -- add layers
-    wk.register {
-        ['<leader>c'] = { name = '[c]ode', _ = 'which_key_ignore' },
-        ['<leader>d'] = { name = '[d]ebug', _ = 'which_key_ignore' },
-        ['<leader>g'] = { name = '[g]it', _ = 'which_key_ignore' },
-        ['<leader>r'] = { name = '[r]ename', _ = 'which_key_ignore' },
-        ['<leader>s'] = { name = '[s]earch', _ = 'which_key_ignore' },
-        -- ['<leader>w'] = { name = '[w]orkspace', _ = 'which_key_ignore' },
+    wk.add({
+        { "<leader>c",  group = "[c]ode" },
+        { "<leader>c_", hidden = true },
+        { "<leader>d",  group = "[d]ebug" },
+        { "<leader>d_", hidden = true },
+        { "<leader>e",  group = "[e] diagnostics" },
+        { "<leader>e_", hidden = true },
+        { "<leader>f",  group = "[f]ormat" },
+        { "<leader>f_", hidden = true },
+        { "<leader>g",  group = "[g]it" },
+        { "<leader>g_", hidden = true },
+        { "<leader>i",  group = "[i]nsert" },
+        { "<leader>i_", hidden = true },
+        { "<leader>j",  group = "[j]ump" },
+        { "<leader>j_", hidden = true },
+        { "<leader>p",  group = "[p]roject" },
+        { "<leader>p_", hidden = true },
+        { "<leader>r",  group = "[r]ename" },
+        { "<leader>r_", hidden = true },
+        { "<leader>s",  group = "[s]earch" },
+        { "<leader>s_", hidden = true },
+        { "<leader>t",  group = "[t]oggle/[t]ab" },
+        { "<leader>t_", hidden = true },
         -- TODO figure out if need those workspaces
-        ['<leader>p'] = { name = '[p]roject', _ = 'which_key_ignore' },
-        ['<leader>v'] = { name = '[v]im', _ = 'which_key_ignore' },
-        ['<leader>j'] = { name = '[j]ump', _ = 'which_key_ignore' },
-        ['<leader>f'] = { name = '[f]ormat', _ = 'which_key_ignore' },
-        ['<leader>i'] = { name = '[i]nsert', _ = 'which_key_ignore' },
-        ['<leader>t'] = { name = '[t]oggle/[t]ab', _ = 'which_key_ignore' },
-        ['<leader>e'] = { name = '[e] diagnostics', _ = 'which_key_ignore' },
-    }
+        -- { '<leader>w', group = '[w]orkspace'},
+        -- { "<leader>w_", hidden = true },
+        { "<leader>v",  group = "[v]im" },
+        { "<leader>v_", hidden = true },
+    })
 
     -- add vanilla vim motions that aren't setup by which-key presets in preview
     -- also keybinds that are setup in keys variable in a plugin setup
-    wk.register({
-        ["<C-w>K"] = "Move current window up-most",
-        ["<C-w>J"] = "Move current window down-most",
-        ['<C-w>H'] = "Move current window left-most",
-        ['<C-w>L'] = "Move current window right-most",
-        ["<C-w>r"] = "Rotate windows downwards/rightwards",
-        ['<C-w>R'] = "Rotate windows upwards/leftwards",
-        ['<C-w>x'] = "Exchange current with next",
-        ['g#'] = "Search term under cursor",
-        ['g*'] = "Search term under cursor",
-    }, { preset = true }
-    )
+    wk.add({
+        { "<C-w>H", desc = "Move current window left-most" },
+        { "<C-w>J", desc = "Move current window down-most" },
+        { "<C-w>K", desc = "Move current window up-most" },
+        { "<C-w>L", desc = "Move current window right-most" },
+        { "<C-w>R", desc = "Rotate windows upwards/leftwards" },
+        { "<C-w>r", desc = "Rotate windows downwards/rightwards" },
+        { "<C-w>x", desc = "Exchange current with next" },
+        { "g#",     desc = "Search term under cursor" },
+        { "g*",     desc = "Search term under cursor" },
+    })
 
 
     -- mason-lspconfig requires that these setup functions are called in this order
@@ -283,7 +295,7 @@ vim.defer_fn(function()
     --  define the property 'filetypes' to the map in question.
     local servers = {
         -- gopls = {},
-        ts_ls = { filetypes = {'ts', 'js'} },
+        ts_ls = { filetypes = { 'ts', 'js' } },
         -- typescript_language_server = {},
         -- html = { filetypes = { 'html', 'twig', 'hbs'} },
         ['bashls'] = { filetypes = { 'bash', 'sh', 'cmd' }, shell = 'sh' },

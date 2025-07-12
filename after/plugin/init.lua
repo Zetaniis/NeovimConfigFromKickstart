@@ -589,4 +589,8 @@ vim.defer_fn(function()
     end
     vim.keymap.set("n", "<Leader>tn", "<cmd> tabnew<CR>", { desc = "[n]ew tab" })
     vim.keymap.set("n", "<Leader>td", "<cmd> tabclose<CR>", { desc = "[d]elete tab" })
+
+    -- [[ comment.nvim ]]
+    vim.keymap.set('n', '<C-_>',    require('Comment.api').toggle.linewise.current, { silent = true, desc = 'Toggle comment (Ctrl+/)' })
+
 end, 50)

@@ -4,7 +4,7 @@ vim.defer_fn(function()
     -- [[ Configure Treesitter ]]
     -- gcc seems to break on windows, zig seems to work well
     -- require 'nvim-treesitter.install'.prefer_git = true;
-    require 'nvim-treesitter.install'.compilers = { "zig" }
+    require 'nvim-treesitter.install'.compilers = { "zig", "gcc" }
 
 
 
@@ -279,6 +279,10 @@ vim.defer_fn(function()
         { "g*",     desc = "Search term under cursor" },
     })
 
+
+-- class Solution:
+--     def twoSum(self, nums: List[int], target: int) -> List[int]:
+--        require('mason')
 
     -- mason-lspconfig requires that these setup functions are called in this order
     -- before setting up the servers.

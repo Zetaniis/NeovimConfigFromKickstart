@@ -80,3 +80,8 @@ vim.keymap.set({ "n" }, "<leader>sn", ":nohlsearch<CR>", { desc = '[n]o [s]earch
 -- https://github.com/ChrisTitusTech/neovim/blob/main/titus-kickstart/lua/keymaps.lua#LL50C1-L51C30
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
+
+
+
+-- paste from the yank register
+vim.keymap.set({ "n", "v" }, "<leader>p", '"0p', { desc = '[p]aste from yank register' })

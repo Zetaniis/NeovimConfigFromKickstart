@@ -8,6 +8,7 @@ return {
         dependencies = { 'nvim-treesitter/nvim-treesitter' },
         config = function()
             require('treesj').setup({--[[ your config ]]})
+            vim.keymap.set({ 'n', 'v' }, '<leader>fb', ":TSJToggle<CR>", { desc = 'split/join code [b]lock' })
         end,
     },
 }

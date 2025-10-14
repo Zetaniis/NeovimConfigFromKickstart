@@ -85,3 +85,54 @@ vim.keymap.set("v", ">", ">gv")
 
 -- paste from the yank register
 vim.keymap.set({ "n", "v" }, "<leader>p", '"0p', { desc = '[p]aste from yank register' })
+
+
+-- [[Window layer]]
+-- <leader>w is nicer to input than C-w when using typical window commands
+-- <leader>w is <C-w>, no which-key preview for now
+vim.keymap.set("n", "<leader>w", "<C-w>", { desc = '[w]indow' })
+
+
+-- [[buffer layer]]
+vim.keymap.set('n', '<leader>bd', ":bd<CR>", { desc = '[d]elete [b]uffer' })
+
+-- [[ tabs ]]
+-- gt/gT for next/prev tab
+for i = 1, 5 do
+    vim.keymap.set('n', '<leader>' .. i, i .. "gt", { desc = 'tab ' .. i })
+end
+vim.keymap.set("n", "<Leader>tn", "<cmd> tabnew<CR>", { desc = "[n]ew tab" })
+vim.keymap.set("n", "<Leader>td", "<cmd> tabclose<CR>", { desc = "[d]elete tab" })
+
+
+vim.keymap.set("n", "<leader>tw", ":set wrap!<CR>", { desc = '[t]oggle [w]ord wrap' })
+-- vim.keymap.set("n", "<leader>tW", ":echo 'TODO'<CR>", { desc = '[t]oggle ignore trim [w]hitespace in diff (TODO)' })
+vim.keymap.set("n", "<leader>tc", ":echo 'TODO'<CR>", { desc = '[t]oggle find [c]ase insensitive (TODO)' })
+
+
+
+-- [[format layer]]
+-- vim.keymap.set("n", "<leader>fi", ":echo 'TODO'<CR>", { desc = 'change [i]ndentation (TODO)' })
+-- vim.keymap.set("n", "<leader>fd", ":echo 'TODO'<CR>", { desc = 'detect [i]ndentation (TODO)' })
+-- vim.keymap.set({ "n", "v" }, "<leader>fr", ":echo 'TODO'<CR>", { desc = '[r]eindent (TODO)' })
+-- vim.keymap.set("n", "<leader>ft", ":echo 'TODO'<CR>", { desc = 'convert indentation to [t]abs (TODO)' })
+-- vim.keymap.set("n", "<leader>fs", ":echo 'TODO'<CR>", { desc = 'convert indentation to [s]paces (TODO)' })
+vim.keymap.set("n", "<leader>ff", vim.lsp.buf.format, { desc = '[f]ormat using LSP' })
+vim.keymap.set("n", "<leader>fu", ":update | e ++ff=dos | setlocal ff=unix | w<CR>", { desc = 'dos2[u]nix' })
+vim.keymap.set("n", "<leader>fU", ":update | e ++ff=dos | w<CR>", { desc = '[U]nix2dos' })
+
+
+
+-- [[diagnostics layer]]
+
+vim.keymap.set("n", "<leader>e.", ":echo 'TODO'<CR>", { desc = '[e] diagnostic transient (TODO)' }) -- could use which key hydra mode
+vim.keymap.set('n', '[d', function() vim.diagnostic.jump({ count = -1, float = true }) end, { desc = 'Go to previous diagnostic message' })
+vim.keymap.set('n', '<leader>ep', function() vim.diagnostic.jump({ count = -1, float = true }) end, { desc = 'Go to [p]revious diagnostic message' })
+vim.keymap.set('n', '<leader>eN', function() vim.diagnostic.jump({ count = -1, float = true }) end, { desc = 'Go to previous diagnostic message' })
+vim.keymap.set('n', ']d', function() vim.diagnostic.jump({ count = 1, float = true }) end, { desc = 'Go to next diagnostic message' })
+vim.keymap.set('n', '<leader>en', function() vim.diagnostic.jump({ count = 1, float = true }) end, { desc = 'Go to [n]ext diagnostic message' })
+vim.keymap.set('n', '<leader>es', vim.diagnostic.open_float, { desc = '[s]how floating diagnostic message' })
+vim.keymap.set('n', '<leader>eK', vim.diagnostic.open_float, { desc = '[s]how floating diagnostic message' })
+vim.keymap.set('n', '<leader>ek', vim.diagnostic.open_float, { desc = '[s]how floating diagnostic message' })
+-- using the telescope diagnostics list
+-- vim.keymap.set('n', '<leader>el', vim.diagnostic.setloclist, { desc = 'open diagnostics [l]ist' })

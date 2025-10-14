@@ -53,10 +53,12 @@ vim.o.expandtab = true -- Pressing the TAB key will insert spaces instead of a T
 
 
 vim.opt.incsearch = true
+-- Preview substitutions live, as you type!
+vim.o.inccommand = 'split'
 
 
 -- making some space on the end of the file
-vim.opt.scrolloff = 5
+vim.opt.scrolloff = 8
 
 -- TODO not sure what this is, research
 -- vim.opt.isfname:append("@-@")
@@ -70,3 +72,13 @@ vim.cmd([[set whichwrap+=h,l]])
 
 -- vertsplit new window to the right
 vim.opt.splitright = true
+
+vim.g.have_nerd_font = false
+
+-- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
+-- instead raise a dialog asking if you wish to save the current file(s)
+vim.o.confirm = true
+
+
+-- Autocompletion
+vim.opt.completeopt = {"menu", "menuone", "noinsert"}

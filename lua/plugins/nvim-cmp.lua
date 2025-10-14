@@ -4,10 +4,6 @@ return {
         -- Autocompletion
         -- could be useful to check - https://youtu.be/NL8D8EkphUw?si=0HBrsuGqCz4yBsDR&t=756
         'hrsh7th/nvim-cmp',
-        -- TODO make the mapping work properly 
-        mapping = {
-            -- ['<Tab>'] = require('cmp').mapping.complete(),
-        },
         dependencies = {
             -- Not sure what kind of autocompletion should I use so I just pasted the ones from the kickstart.nvim
             -- Snippet Engine & its associated nvim-cmp source

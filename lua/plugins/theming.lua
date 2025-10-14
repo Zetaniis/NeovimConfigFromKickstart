@@ -18,6 +18,10 @@ return {
         priority = 1000,
         config = function()
             require('onedark').setup({
+                colors = {
+                    bg0 = '#111111',
+                    bg1 = '#111111',
+                },
                 transparent = true,
                 lualine = {
                     transparent = true, -- lualine center bar transparency
@@ -31,6 +35,8 @@ return {
                 -- darker is best for transparent background most of the time
             })
             vim.cmd.colorscheme 'onedark'
+            vim.cmd("hi StatusLine guibg=NONE")
+            -- vim.cmd("highlight Normal guibg=#000000")
             -- the below are some tricks to make the transparency in a situation where the nvim package doesn't support it
             --
             -- -- vim.cmd([[
@@ -92,6 +98,6 @@ return {
     -- },
 
     -- for testing and editing themeing on the fly
-    { 'rktjmp/lush.nvim' },
+    -- { 'rktjmp/lush.nvim' },
 
 }

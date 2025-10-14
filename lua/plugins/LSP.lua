@@ -56,7 +56,12 @@ return {
                     '[s]earch workspace [S]ymbols')
 
                 -- See `:help K` for why this keymap
-                nmap('K', function() vim.lsp.buf.hover { border = "solid" } end,
+                nmap('K', function(opts)
+                        local _, winid = vim.diagnostic.open_float(opts)
+                        if winid == nil then
+                            vim.lsp.buf.hover { }
+                        end
+                    end,
                     'Hover Documentation')
                 nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 

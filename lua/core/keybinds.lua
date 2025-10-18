@@ -95,6 +95,7 @@ vim.keymap.set("n", "<leader>w", "<C-w>", { desc = '[w]indow' })
 
 -- [[buffer layer]]
 vim.keymap.set('n', '<leader>bd', ":bd<CR>", { desc = '[d]elete [b]uffer' })
+vim.keymap.set('n', '<leader>q', ":bd<CR>", { desc = 'delete buffer' })
 
 -- [[ tabs ]]
 -- gt/gT for next/prev tab

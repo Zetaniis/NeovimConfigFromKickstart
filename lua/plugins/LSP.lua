@@ -31,19 +31,23 @@ return {
                 --
                 -- In this case, we create a function that lets us more easily define mappings specific
                 -- for LSP related items. It sets the mode, buffer and description for us each time.
-                local nmap = function(keys, func, desc)
+                local nmap = function(keys, func, desc, opts)
+                    local mode = "n"
+                    if opts then
+                        mode = opts.mode or "n"
+                    end
                     if desc then
                         desc = 'LSP: ' .. desc
                     end
 
-                    vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
+                    vim.keymap.set(mode, keys, func, { buffer = bufnr, desc = desc })
                 end
 
 
                 nmap('<leader>rs', vim.lsp.buf.rename, '[r]ename [s]ymbol under cursor')
                 -- TODO
                 -- change the binding maybe
-                nmap('<leader>ca', vim.lsp.buf.code_action, '[c]ode [a]ction')
+                nmap('<leader>ca', vim.lsp.buf.code_action, '[c]ode [a]ction', { mode = { "n", "v" } })
 
                 nmap('gd', require('telescope.builtin').lsp_definitions, '[g]oto [d]efinition')
                 -- below one uses raw nvim list, looks meh
@@ -59,7 +63,7 @@ return {
                 nmap('K', function(opts)
                         local _, winid = vim.diagnostic.open_float(opts)
                         if winid == nil then
-                            vim.lsp.buf.hover { }
+                            vim.lsp.buf.hover {}
                         end
                     end,
                     'Hover Documentation')
@@ -157,6 +161,11 @@ return {
                 --     },
                 -- },
 
+                -- ast_grep = {
+                --     filetypes = {"python"}
+                -- },
+                
+                ruff = {},
 
                 clangd = {},
 

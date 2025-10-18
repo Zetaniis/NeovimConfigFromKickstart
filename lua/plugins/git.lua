@@ -5,7 +5,7 @@ return {
     {
         'tpope/vim-fugitive',
         config = function()
-            vim.keymap.set("n", "<leader>gg", ":vert G<CR>", { desc = 'open [g]it tool' })
+            vim.keymap.set({"n",'v'}, "<leader>gg", ":vert G<CR>", { desc = 'open [g]it tool' })
         end
     },
 

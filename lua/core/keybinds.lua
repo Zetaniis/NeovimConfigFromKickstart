@@ -9,7 +9,7 @@ vim.keymap.set({ 'n', 'v' }, 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, si
 
 
 -- opening base config file for neovim - init.lua - and changing working directory to the config one
-vim.keymap.set({ 'n' }, '<Leader>vc', function()
+vim.keymap.set({ 'n', 'v' }, '<Leader>vc', function()
         vim.cmd([[cd `=stdpath("config")`]])
         vim.cmd([[e init.lua]])
     end,
@@ -19,7 +19,7 @@ vim.keymap.set({ 'n' }, '<Leader>vc', function()
 -- this option makes the file explorer stay on the side, doesn't seem that great, 
 -- TODO a specific file tree plugin would be optimal
 -- vim.keymap.set({ 'n' }, '<Leader>ve', ':Lex<CR>', { desc = 'Open [v]im file [e]xplorer' })
-vim.keymap.set({ 'n' }, '<Leader>ve', ':Ex<CR>', { desc = 'Open [v]im file [e]xplorer' })
+vim.keymap.set({ 'n', 'v' }, '<Leader>ve', ':Ex<CR>', { desc = 'Open [v]im file [e]xplorer' })
 
 -- TODO
 -- figure out a language agnostic way of running project code
@@ -74,7 +74,7 @@ vim.keymap.set("n", "<leader>rc", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left>
 vim.keymap.set({ "n" }, "<C-w>u", "TODO", { desc = '[u]ndo last window change (TODO)' })
 
 
-vim.keymap.set({ "n" }, "<leader>sn", ":nohlsearch<CR>", { desc = '[n]o [s]earch highlight' })
+vim.keymap.set({ "n", 'v' }, "<leader>sn", ":nohlsearch<CR>", { desc = '[n]o [s]earch highlight' })
 
 -- transient mode for indenting while in selection
 -- https://github.com/ChrisTitusTech/neovim/blob/main/titus-kickstart/lua/keymaps.lua#LL50C1-L51C30
@@ -90,25 +90,25 @@ vim.keymap.set({ "n", "v" }, "<leader>p", '"0p', { desc = '[p]aste from yank reg
 -- [[Window layer]]
 -- <leader>w is nicer to input than C-w when using typical window commands
 -- <leader>w is <C-w>, no which-key preview for now
-vim.keymap.set("n", "<leader>w", "<C-w>", { desc = '[w]indow' })
+vim.keymap.set({"n",'v'}, "<leader>w", "<C-w>", { desc = '[w]indow' })
 
 
 -- [[buffer layer]]
-vim.keymap.set('n', '<leader>bd', ":bd<CR>", { desc = '[d]elete [b]uffer' })
-vim.keymap.set('n', '<leader>q', ":bd<CR>", { desc = 'delete buffer' })
+vim.keymap.set({'n','v'}, '<leader>bd', ":bd<CR>", { desc = '[d]elete [b]uffer' })
+vim.keymap.set({'n','v'}, '<leader>q', ":bd<CR>", { desc = 'delete buffer' })
 
 -- [[ tabs ]]
 -- gt/gT for next/prev tab
 for i = 1, 5 do
-    vim.keymap.set('n', '<leader>' .. i, i .. "gt", { desc = 'tab ' .. i })
+    vim.keymap.set({'n','v'}, '<leader>' .. i, i .. "gt", { desc = 'tab ' .. i })
 end
-vim.keymap.set("n", "<Leader>tn", "<cmd> tabnew<CR>", { desc = "[n]ew tab" })
-vim.keymap.set("n", "<Leader>td", "<cmd> tabclose<CR>", { desc = "[d]elete tab" })
+vim.keymap.set({"n",'v'}, "<Leader>tn", "<cmd> tabnew<CR>", { desc = "[n]ew tab" })
+vim.keymap.set({"n",'v'}, "<Leader>td", "<cmd> tabclose<CR>", { desc = "[d]elete tab" })
 
 
-vim.keymap.set("n", "<leader>tw", ":set wrap!<CR>", { desc = '[t]oggle [w]ord wrap' })
+vim.keymap.set({"n",'v'}, "<leader>tw", ":set wrap!<CR>", { desc = '[t]oggle [w]ord wrap' })
 -- vim.keymap.set("n", "<leader>tW", ":echo 'TODO'<CR>", { desc = '[t]oggle ignore trim [w]hitespace in diff (TODO)' })
-vim.keymap.set("n", "<leader>tc", ":echo 'TODO'<CR>", { desc = '[t]oggle find [c]ase insensitive (TODO)' })
+vim.keymap.set({"n",'v'}, "<leader>tc", ":echo 'TODO'<CR>", { desc = '[t]oggle find [c]ase insensitive (TODO)' })
 
 
 
@@ -118,22 +118,22 @@ vim.keymap.set("n", "<leader>tc", ":echo 'TODO'<CR>", { desc = '[t]oggle find [c
 -- vim.keymap.set({ "n", "v" }, "<leader>fr", ":echo 'TODO'<CR>", { desc = '[r]eindent (TODO)' })
 -- vim.keymap.set("n", "<leader>ft", ":echo 'TODO'<CR>", { desc = 'convert indentation to [t]abs (TODO)' })
 -- vim.keymap.set("n", "<leader>fs", ":echo 'TODO'<CR>", { desc = 'convert indentation to [s]paces (TODO)' })
-vim.keymap.set("n", "<leader>ff", vim.lsp.buf.format, { desc = '[f]ormat using LSP' })
-vim.keymap.set("n", "<leader>fu", ":update | e ++ff=dos | setlocal ff=unix | w<CR>", { desc = 'dos2[u]nix' })
-vim.keymap.set("n", "<leader>fU", ":update | e ++ff=dos | w<CR>", { desc = '[U]nix2dos' })
+vim.keymap.set({"n",'v'}, "<leader>ff", vim.lsp.buf.format, { desc = '[f]ormat using LSP' })
+vim.keymap.set({"n",'v'}, "<leader>fu", ":update | e ++ff=dos | setlocal ff=unix | w<CR>", { desc = 'dos2[u]nix' })
+vim.keymap.set({"n",'v'}, "<leader>fU", ":update | e ++ff=dos | w<CR>", { desc = '[U]nix2dos' })
 
 
 
 -- [[diagnostics layer]]
 
-vim.keymap.set("n", "<leader>e.", ":echo 'TODO'<CR>", { desc = '[e] diagnostic transient (TODO)' }) -- could use which key hydra mode
-vim.keymap.set('n', '[d', function() vim.diagnostic.jump({ count = -1, float = true }) end, { desc = 'Go to previous diagnostic message' })
-vim.keymap.set('n', '<leader>ep', function() vim.diagnostic.jump({ count = -1, float = true }) end, { desc = 'Go to [p]revious diagnostic message' })
-vim.keymap.set('n', '<leader>eN', function() vim.diagnostic.jump({ count = -1, float = true }) end, { desc = 'Go to previous diagnostic message' })
-vim.keymap.set('n', ']d', function() vim.diagnostic.jump({ count = 1, float = true }) end, { desc = 'Go to next diagnostic message' })
-vim.keymap.set('n', '<leader>en', function() vim.diagnostic.jump({ count = 1, float = true }) end, { desc = 'Go to [n]ext diagnostic message' })
-vim.keymap.set('n', '<leader>es', vim.diagnostic.open_float, { desc = '[s]how floating diagnostic message' })
-vim.keymap.set('n', '<leader>eK', vim.diagnostic.open_float, { desc = '[s]how floating diagnostic message' })
-vim.keymap.set('n', '<leader>ek', vim.diagnostic.open_float, { desc = '[s]how floating diagnostic message' })
+vim.keymap.set({"n",'v'}, "<leader>e.", ":echo 'TODO'<CR>", { desc = '[e] diagnostic transient (TODO)' }) -- could use which key hydra mode
+vim.keymap.set({'n','v'}, '[d', function() vim.diagnostic.jump({ count = -1, float = true }) end, { desc = 'Go to previous diagnostic message' })
+vim.keymap.set({'n','v'}, '<leader>ep', function() vim.diagnostic.jump({ count = -1, float = true }) end, { desc = 'Go to [p]revious diagnostic message' })
+vim.keymap.set({'n','v'}, '<leader>eN', function() vim.diagnostic.jump({ count = -1, float = true }) end, { desc = 'Go to previous diagnostic message' })
+vim.keymap.set({'n','v'}, ']d', function() vim.diagnostic.jump({ count = 1, float = true }) end, { desc = 'Go to next diagnostic message' })
+vim.keymap.set({'n','v'}, '<leader>en', function() vim.diagnostic.jump({ count = 1, float = true }) end, { desc = 'Go to [n]ext diagnostic message' })
+vim.keymap.set({'n','v'}, '<leader>es', vim.diagnostic.open_float, { desc = '[s]how floating diagnostic message' })
+vim.keymap.set({'n','v'}, '<leader>eK', vim.diagnostic.open_float, { desc = '[s]how floating diagnostic message' })
+vim.keymap.set({'n','v'}, '<leader>ek', vim.diagnostic.open_float, { desc = '[s]how floating diagnostic message' })
 -- using the telescope diagnostics list
 -- vim.keymap.set('n', '<leader>el', vim.diagnostic.setloclist, { desc = 'open diagnostics [l]ist' })

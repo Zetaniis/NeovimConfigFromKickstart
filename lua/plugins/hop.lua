@@ -5,32 +5,32 @@ return {
         local hop = require('hop')
         local directions = require('hop.hint').HintDirection
 
-        vim.keymap.set("n", "<leader>h", function()
+        vim.keymap.set({"n",'v'}, "<leader>h", function()
             ---@diagnostic disable-next-line: missing-fields
             hop.hint_words({})
         end, { desc = '[h]op to word' })
 
-        vim.keymap.set("n", "<leader>jw", function()
+        vim.keymap.set({"n",'v'}, "<leader>jw", function()
             ---@diagnostic disable-next-line: missing-fields
             hop.hint_words({})
         end, { desc = '[j]ump to [w]ord' })
 
-        vim.keymap.set("n", "<leader>jj", function()
+        vim.keymap.set({"n",'v'}, "<leader>jj", function()
             ---@diagnostic disable-next-line: missing-fields
             hop.hint_char1({})
         end, { desc = '[j]ump to char' })     -- don't need that as I override the the fFtT keys with this one
 
-        vim.keymap.set("n", "<leader>jJ", function()
+        vim.keymap.set({"n",'v'}, "<leader>jJ", function()
             ---@diagnostic disable-next-line: missing-fields
             hop.hint_char2({})
         end, { desc = '[j]ump to 2chars' })
 
-        vim.keymap.set("n", "<leader>jl", function()
+        vim.keymap.set({"n",'v'}, "<leader>jl", function()
             ---@diagnostic disable-next-line: missing-fields
             hop.hint_lines({})
         end, { desc = '[j]ump to [l]ine' })
 
-        vim.keymap.set("n", "<leader>ju", function()
+        vim.keymap.set({"n", 'v'}, "<leader>ju", function()
             ---@diagnostic disable-next-line: missing-fields
             hop.hint_patterns({}, "https*://")
         end, { desc = '[j]ump to [u]rl' })

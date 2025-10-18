@@ -90,7 +90,7 @@ vim.keymap.set({ "n", "v" }, "<leader>p", '"0p', { desc = '[p]aste from yank reg
 -- [[Window layer]]
 -- <leader>w is nicer to input than C-w when using typical window commands
 -- <leader>w is <C-w>, no which-key preview for now
-vim.keymap.set({"n",'v'}, "<leader>w", "<C-w>", { desc = '[w]indow' })
+-- vim.keymap.set({"n",'v'}, "<leader>w", "<C-w>", { desc = '[w]indow' })
 
 
 -- [[buffer layer]]

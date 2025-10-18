@@ -7,6 +7,7 @@ return {
 
             -- add layers
             wk.add({
+                mode = { "n", "v" }, -- NORMAL and VISUAL mode
                 { "<leader>c",  group = "[c]ode" },
                 { "<leader>c_", hidden = true },
                 { "<leader>d",  group = "[d]ebug" },
@@ -34,6 +35,9 @@ return {
                 -- { "<leader>w_", hidden = true },
                 { "<leader>v",  group = "[v]im" },
                 { "<leader>v_", hidden = true },
+                { "<leader>b",  group = "[b]uffer" },
+                { "<leader>b_", hidden = true },
+                { "<leader>w", proxy = "<c-w>", group = "[w]indows" },
             })
 
             -- add vanilla vim motions that aren't setup by which-key presets in preview

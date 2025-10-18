@@ -10,7 +10,7 @@ return {
 
             vim.keymap.set({'n','v'}, '<leader>a', mark.add_file, { desc = "[a]dd buffer to harpoon" })
             vim.keymap.set({'n','v'}, '<leader>sH', ui.toggle_quick_menu, { desc = "[s]earch [H]arpooned buffers" })
-            vim.keymap.set({'n','v'}, '<leader>l', ui.toggle_quick_menu, { desc = "[s]earch [H]arpooned buffers" })
+            vim.keymap.set({'n','v'}, '<leader>l', ui.toggle_quick_menu, { desc = "[l]ist Harpooned buffers" })
             vim.keymap.set({'n','v'}, '<leader>7', function()
                 ui.nav_file(1)
             end, { desc = "1 Harpooned buffer" })

@@ -21,6 +21,7 @@ return {
                 colors = {
                     bg0 = '#111111',
                     bg1 = '#111111',
+                    grey = '#697080'
                 },
                 transparent = true,
                 lualine = {

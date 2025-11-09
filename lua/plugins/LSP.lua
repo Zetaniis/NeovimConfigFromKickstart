@@ -123,7 +123,7 @@ return {
             --  define the property 'filetypes' to the map in question.
             local servers = {
                 -- gopls = {},
-                ts_ls = { filetypes = { 'ts', 'js' } },
+                -- ts_ls = { filetypes = { 'ts', 'js' } },
                 -- typescript_language_server = {},
                 -- html = { filetypes = { 'html', 'twig', 'hbs'} },
                 ['bashls'] = { filetypes = { 'bash', 'sh', 'cmd' }, shell = 'sh' },
@@ -164,10 +164,19 @@ return {
                 -- ast_grep = {
                 --     filetypes = {"python"}
                 -- },
-                
+
                 ruff = {},
 
                 clangd = {},
+
+                -- tsserver = {
+                --     cmd = { "typescript-language-server", "--stdio" },
+                --     filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+                --     -- root_dir = function(fname)
+                --     --     return util.root_pattern 'tsconfig.json' (fname)
+                --     --         or util.root_pattern('package.json', 'jsconfig.json', '.git')(fname)
+                --     -- end,
+                -- }
 
             }
 

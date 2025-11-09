@@ -24,7 +24,7 @@ return {
                 { "<leader>j_", hidden = true },
                 { "<leader>p",  group = "[p]roject" },
                 { "<leader>p_", hidden = true },
-                { "<leader>r",  group = "[r]ename" },
+                { "<leader>r",  group = "[r]efactor" },
                 { "<leader>r_", hidden = true },
                 { "<leader>s",  group = "[s]earch" },
                 { "<leader>s_", hidden = true },

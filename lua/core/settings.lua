@@ -3,6 +3,20 @@
 -- Unified clipboard
 vim.opt.clipboard = "unnamed,unnamedplus"
 
+local is_ssh = os.getenv("SSH_CONNECTION") ~= nil or os.getenv("SSH_CLIENT") ~= nil
+if is_ssh then
+    vim.g.clipboard = {
+      name = 'OSC 52',
+      copy = {
+        ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+        ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+      },
+      paste = {
+        ['+'] = function() return { {}, '' } end,
+        ['*'] = function() return { {}, '' } end,  },
+    }
+end
+
 -- Make line numbers default, with relative line distance to cursor
 vim.wo.number = true
 vim.wo.relativenumber = true
